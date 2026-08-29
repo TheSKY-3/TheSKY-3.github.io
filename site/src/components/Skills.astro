@@ -1,0 +1,23 @@
+---
+import { skillGroups } from '../data/skills';
+---
+<section class="section" id="skills">
+  <div class="container">
+    <span class="eyebrow">技能 / SKILLS</span>
+    <h2>工具箱</h2>
+    <div class="skill-grid">
+      {skillGroups.map((g) => (
+        <div class="card">
+          <h3>{g.name}</h3>
+          <div class="tags">{g.items.map((it) => <span class="tag">{it}</span>)}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+<style>
+  .skill-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-2); margin-top: var(--space-3); }
+  .card h3 { font-size: 16px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  @media (max-width: 640px) { .skill-grid { grid-template-columns: 1fr; } }
+</style>

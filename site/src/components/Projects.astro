@@ -1,0 +1,31 @@
+---
+import { projects } from '../data/projects';
+---
+<section class="section" id="projects">
+  <div class="container">
+    <span class="eyebrow">项目作品集 / PROJECTS</span>
+    <h2>三个可以深入追问的项目</h2>
+    <div class="proj-grid">
+      {projects.map((p) => (
+        <a class="card proj-card" href={`/projects/${p.slug}/`}>
+          <span class="tag">{p.eyebrow}</span>
+          <h3>{p.title}</h3>
+          <p class="period num">{p.period}</p>
+          <p class="summary">{p.summary}</p>
+          <span class="more">阅读详情 →</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+<style>
+  .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-2); margin-top: var(--space-3); }
+  .proj-card { display: flex; flex-direction: column; gap: var(--space-1); color: var(--c-mist); }
+  .proj-card:hover { border-color: var(--c-amber); }
+  .proj-card h3 { font-size: 18px; margin: 0; }
+  .period { font-size: 13px; margin: 0; }
+  .summary { font-size: 14.5px; flex: 1; margin: 0; }
+  .more { font-family: var(--font-mono); font-size: 13px; color: var(--c-ice); }
+  .proj-card:hover .more { color: var(--c-amber); }
+  @media (max-width: 900px) { .proj-grid { grid-template-columns: 1fr; } }
+</style>

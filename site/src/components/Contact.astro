@@ -1,0 +1,15 @@
+---
+import { profile } from '../data/profile';
+---
+<section class="section" id="contact">
+  <div class="container contact-inner">
+    <span class="eyebrow">联系 / CONTACT</span>
+    <h2>简历与项目细节，欢迎邮件索取</h2>
+    <p>{profile.location} · {profile.availability}</p>
+    <a class="mail" href={`mailto:${profile.email}`}>{profile.email}</a>
+  </div>
+</section>
+<style>
+  .contact-inner { text-align: left; }
+  .mail { font-family: var(--font-mono); font-size: clamp(18px, 3vw, 24px); color: var(--c-amber); }
+</style>

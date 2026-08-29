@@ -1,0 +1,28 @@
+---
+import { education, honors } from '../data/education';
+---
+<section class="section" id="education">
+  <div class="container">
+    <span class="eyebrow">教育与荣誉 / EDUCATION</span>
+    <h2>教育背景</h2>
+    <div class="edu-list">
+      {education.map((e) => (
+        <div class="edu-item">
+          <p class="edu-head"><strong>{e.school}</strong> · {e.degree}</p>
+          <p class="num edu-period">{e.period}</p>
+          <p class="edu-note">{e.note}</p>
+        </div>
+      ))}
+    </div>
+    <h3>荣誉奖项</h3>
+    <div class="tags">{honors.map((h) => <span class="tag">{h}</span>)}</div>
+  </div>
+</section>
+<style>
+  .edu-list { display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-3); }
+  .edu-item { border-left: 2px solid var(--c-line); padding-left: var(--space-2); }
+  .edu-head { color: var(--c-paper); margin: 0; }
+  .edu-period { font-size: 13px; margin: 0; }
+  .edu-note { font-size: 14px; margin: 0; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+</style>
