@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+
+interface Props { title: string; description: string; }
+const { title, description } = Astro.props;
+const nav = [
+  ["关于", "#about"], ["实习", "#experience"], ["项目", "#projects"],
+  ["研究", "#research"], ["联系", "#contact"],
+] as const;
+---
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#top">吴柏高<span class="brand-dot">.</span></a>
+        <nav aria-label="主导航">
+          {nav.map(([label, href]) => <a href={href}>{label}</a>)}
+        </nav>
+      </div>
+    </header>
+    <main id="top">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <p>© 2026 吴柏高 · <a href="mailto:1525546469@qq.com">1525546469@qq.com</a></p>
+      </div>
+    </footer>
+  </body>
+</html>
+<style>
+  .site-header {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--c-ink) 88%, transparent);
+    backdrop-filter: blur(8px); border-bottom: 1px solid var(--c-line);
+  }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .brand { color: var(--c-paper); font-weight: 600; }
+  .brand-dot { color: var(--c-amber); }
+  nav { display: flex; gap: var(--space-3); }
+  nav a { font-size: 14px; color: var(--c-mist); }
+  nav a:hover { color: var(--c-amber); }
+  .site-footer { border-top: 1px solid var(--c-line); padding: var(--space-4) 0; color: var(--c-mist); font-size: 14px; }
+  @media (max-width: 640px) {
+    nav { gap: var(--space-2); }
+    nav a { font-size: 13px; }
+  }
+</style>
