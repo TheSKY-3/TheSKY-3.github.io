@@ -1,11 +1,12 @@
 :root {
-  --c-ink: #0B1220;
-  --c-panel: #121B2D;
-  --c-line: #23304A;
-  --c-amber: #E8A33D;
-  --c-ice: #8FB8D8;
-  --c-mist: #C6CFDC;
-  --c-paper: #F2F5F9;
+  /* 浅色商务风（2026-08-29 用户验收反馈由深色切换）：冷调浅灰蓝底，非米黄 */
+  --c-ink: #F6F8FB;        /* 页面底色 */
+  --c-panel: #FFFFFF;      /* 卡片/面板 */
+  --c-line: #D8E0EA;       /* 边框、分隔线 */
+  --c-amber: #A0650A;      /* 主强调：深琥珀（白底对比 ≥5:1） */
+  --c-ice: #3E6B96;        /* 次强调：钢蓝 */
+  --c-mist: #2E3A4C;       /* 正文：深灰蓝 */
+  --c-paper: #17233A;      /* 标题：墨蓝 */
   --font-sans: "Segoe UI", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
   --font-mono: "Cascadia Code", Consolas, "Courier New", monospace;
   --w-max: 1080px;
