@@ -1,0 +1,40 @@
+---
+import { profile, heroStats } from '../data/profile';
+---
+<section class="hero" id="hero">
+  <div class="container">
+    <span class="eyebrow">WU BOGAO · PORTFOLIO</span>
+    <h1>{profile.name}</h1>
+    <p class="tagline">{profile.tagline}</p>
+    <div class="intents">
+      {profile.intents.map((t) => <span class="tag intent">{t}</span>)}
+    </div>
+    <ul class="stats">
+      {heroStats.map((s) => (
+        <li><span class="stat-num">{s.value}</span><span class="stat-label">{s.label}</span></li>
+      ))}
+    </ul>
+    <svg class="cost-curve" viewBox="0 0 1080 120" aria-hidden="true">
+      <path d="M0 96 C 300 92, 520 74, 720 46 S 1000 14, 1080 10" stroke="var(--c-line)" stroke-width="2" fill="none"/>
+      <circle cx="720" cy="46" r="5" fill="var(--c-amber)"/>
+      <text x="738" y="42" fill="var(--c-mist)" font-size="14" font-family="var(--font-mono)">10% 复核容量 · 成本 ↓40.37%–48.60%</text>
+    </svg>
+    <p class="hero-caption">来自在研课题：时间一致容量约束下的金融欺诈报警部署策略</p>
+  </div>
+</section>
+<style>
+  .hero { padding: var(--space-6) 0 var(--space-5); }
+  .hero h1 { font-size: clamp(40px, 7vw, 64px); letter-spacing: 0.02em; margin-bottom: var(--space-1); }
+  .tagline { font-size: clamp(17px, 2.4vw, 21px); color: var(--c-paper); margin: 0 0 var(--space-3); }
+  .intents { display: flex; gap: var(--space-2); flex-wrap: wrap; margin-bottom: var(--space-4); }
+  .intent { color: var(--c-amber); border-color: var(--c-amber); }
+  .stats { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-2); padding: 0; margin: 0 0 var(--space-4); }
+  .stats li { background: var(--c-panel); border: 1px solid var(--c-line); border-radius: 10px; padding: var(--space-2); display: flex; flex-direction: column; gap: 4px; }
+  .stat-num { font-family: var(--font-mono); font-size: clamp(20px, 3vw, 28px); color: var(--c-amber); }
+  .stat-label { font-size: 13px; color: var(--c-mist); }
+  .cost-curve { width: 100%; height: auto; display: block; }
+  .hero-caption { font-size: 13px; color: var(--c-ice); margin-top: var(--space-1); }
+  @media (max-width: 640px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
