@@ -14,7 +14,7 @@
 
 以下约束来自 spec，适用于**每一个任务**，复制自此 spec §5 与已确认决策：
 
-- 手机号**禁止**出现在网站任何页面、元数据、代码仓库及全部文档中；本项目所有文件不得包含字符串 `18318556131`。
+- 手机号**禁止**出现在网站任何页面、元数据、代码仓库及全部文档中（本计划刻意不记录号码原文）。仓库级与产物级检查统一使用大陆手机号正则 `1[3-9][0-9]{9}`——不写入任何真实号码，且覆盖任意 11 位手机号，强度高于只查单个号码。
 - 联系方式只放邮箱 `1525546469@qq.com`（mailto 链接）。
 - 业务数字只允许使用简历已对外表述的口径：1015 万条订单、约 40 名司机、60 天/60 期、2 小时→5 分钟、近 20 份报告、8,242 条对账记录、21 项结算字段、约 159 万条风控样本、40.37%-48.60% 成本下降、10% 复核容量、约 1398 万行（13,979,592）Criteo 数据、212 万条评论（2,128,605）、210 万条精确关联（2,100,939）、3,278 个商品、136,604 条评论、99.87% 文本覆盖率。
 - 证据边界（来自知识库项目卡，文案必须遵守）：ECom 项目用"本地证据决策原型 / 阶段性工程验证"，**不**声称已上线、已节省工时或改善业务指标；Criteo 项目用"离线分析完成、线上验证未开始"，**不**声称真实投放、ROI 或用户画像；欺诈检测研究表述为"校级重点项目 · 第一作者 · 论文投稿中"。
@@ -95,7 +95,7 @@ cd /d "D:\个人知识库\个人网站"
 
 ```
 cd /d "D:\个人知识库\个人网站"
-"C:\Program Files\Git\cmd\git.exe" grep -n "18318556131" -- .
+"C:\Program Files\Git\cmd\git.exe" grep -nE "1[3-9][0-9]{9}" -- .
 ```
 
 Expected: 无输出（exit code 1）。
@@ -527,7 +527,7 @@ Expected: 构建通过（TS 接口被 Task 5–7 消费前先保证类型成立�
 
 ```
 cd /d "D:\个人知识库\个人网站\site"
-"C:\Windows\System32\findstr.exe" /s /m "18318556131" src\*.ts
+"C:\Windows\System32\findstr.exe" /R /S /M "1[3-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" src\*.ts
 ```
 
 Expected: 无输出。发现即中断并修复。
@@ -937,7 +937,7 @@ cd /d "D:\个人知识库\个人网站"
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
-const FORBIDDEN = ['18318556131'];
+const FORBIDDEN = [new RegExp('1[3-9]\\d{9}')];
 const ROOT = new URL('../dist', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 
 let hits = [];
@@ -947,7 +947,7 @@ let hits = [];
     if (statSync(p).isDirectory()) walk(p);
     else if (/\.(html|css|js|svg|xml|txt|json)$/.test(name)) {
       const text = readFileSync(p, 'utf8');
-      for (const f of FORBIDDEN) if (text.includes(f)) hits.push(`${p}: ${f}`);
+      for (const f of FORBIDDEN) if (f.test(text)) hits.push(`${p}: ${f}`);
     }
   }
 })(ROOT);
@@ -960,7 +960,7 @@ console.log(`OK: dist 安全扫描通过（检查 ${FORBIDDEN.length} 项禁止�
 
 ```
 cd /d "D:\个人知识库\个人网站\site"
-echo "<p>18318556131</p>" > dist\_neg.html
+"C:\Program Files\nodejs\node.exe" -e "require('fs').writeFileSync('dist/_neg.html','<p>13'+'80'.repeat(4)+'0</p>')"
 "C:\Program Files\nodejs\node.exe" scripts\check-dist.mjs
 ```
 
@@ -1043,7 +1043,7 @@ cd /d "D:\个人知识库\个人网站\site"
 "C:\Program Files\nodejs\npm.cmd" run build
 "C:\Program Files\nodejs\node.exe" scripts\check-dist.mjs
 cd /d "D:\个人知识库\个人网站"
-"C:\Program Files\Git\cmd\git.exe" grep -n "18318556131" -- .
+"C:\Program Files\Git\cmd\git.exe" grep -nE "1[3-9][0-9]{9}" -- .
 ```
 
 Expected: build 成功、扫描 OK、grep 无输出。
