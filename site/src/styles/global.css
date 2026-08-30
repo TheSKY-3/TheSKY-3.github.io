@@ -30,6 +30,21 @@ a:hover { color: var(--c-amber); }
 :focus-visible { outline: 2px solid var(--c-amber); outline-offset: 3px; }
 .container { max-width: var(--w-max); margin: 0 auto; padding: 0 var(--space-3); }
 .section { padding: var(--space-6) 0; border-top: 1px solid var(--c-line); }
+
+/* 首页板块交替色带：偶数板块用纯白面板色，制造阅读节奏
+   （上下边框由 .section 自身的 border-top 与页脚衔接，不重复加线） */
+main > .section:nth-of-type(even) { background: var(--c-panel); }
+
+/* 详情页（article）：整栏居中 + 顶部环境光晕。
+   文字列 760px 对齐居中，图表（.block-wide）保持容器全宽 */
+article.section {
+  background:
+    radial-gradient(900px 300px at 18% -8%, rgba(160, 101, 10, 0.05), transparent 62%),
+    radial-gradient(820px 280px at 85% -12%, rgba(62, 107, 150, 0.08), transparent 62%);
+}
+article.section .container { max-width: 920px; }
+article.section .container > * { margin-inline: auto; max-width: 760px; }
+article.section .container > .block-wide { max-width: none; }
 .eyebrow {
   font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.12em;
   color: var(--c-ice); text-transform: uppercase; display: block; margin-bottom: var(--space-2);

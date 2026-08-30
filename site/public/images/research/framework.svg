@@ -1,22 +1,22 @@
 <svg width="1240" height="648" viewBox="0 0 1240 648" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Microsoft YaHei, PingFang SC, sans-serif">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0B1220"/>
-      <stop offset="1" stop-color="#101C33"/>
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F3F7FB"/>
     </linearGradient>
     <radialGradient id="glowA" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#E8A33D" stop-opacity="0.10"/>
+      <stop offset="0" stop-color="#E8A33D" stop-opacity="0.07"/>
       <stop offset="1" stop-color="#E8A33D" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="glowB" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#6FA3D8" stop-opacity="0.08"/>
+      <stop offset="0" stop-color="#6FA3D8" stop-opacity="0.06"/>
       <stop offset="1" stop-color="#6FA3D8" stop-opacity="0"/>
     </radialGradient>
     <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6FA3D8"/>
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7C97B4"/>
     </marker>
     <marker id="arwAmber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#E8A33D"/>
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#A0650A"/>
     </marker>
   </defs>
 
@@ -24,110 +24,110 @@
   <ellipse cx="1060" cy="60" rx="420" ry="200" fill="url(#glowA)"/>
   <ellipse cx="140" cy="600" rx="420" ry="220" fill="url(#glowB)"/>
 
-  <!-- 时间边界（贯穿全图，压在面板之下） -->
-  <line x1="969.5" y1="96" x2="969.5" y2="586" stroke="#E8A33D" stroke-width="1.5" stroke-dasharray="5 6" opacity="0.35"/>
-  <text x="955" y="88" text-anchor="end" fill="#E8A33D" opacity="0.8" font-size="13.5" font-family="Cascadia Code, Consolas, monospace">训练期 · TRAINING</text>
-  <text x="984" y="88" fill="#E8A33D" opacity="0.8" font-size="13.5" font-family="Cascadia Code, Consolas, monospace">未来测试期 · FUTURE TEST</text>
+  <!-- 时间边界（贯穿全图） -->
+  <line x1="969.5" y1="96" x2="969.5" y2="586" stroke="#A0650A" stroke-width="1.5" stroke-dasharray="5 6" opacity="0.45"/>
+  <text x="955" y="88" text-anchor="end" fill="#A0650A" opacity="0.85" font-size="13.5" font-family="Cascadia Code, Consolas, monospace">训练期 · TRAINING</text>
+  <text x="984" y="88" fill="#A0650A" opacity="0.85" font-size="13.5" font-family="Cascadia Code, Consolas, monospace">未来测试期 · FUTURE TEST</text>
 
   <!-- 头部 -->
-  <rect x="45" y="40" width="5" height="26" rx="2.5" fill="#E8A33D"/>
-  <text x="62" y="60" fill="#F2F5F9" font-size="22" font-weight="600">TC-CCR 方法框架</text>
-  <text x="1195" y="58" text-anchor="end" fill="#5E7A99" font-size="14" font-family="Cascadia Code, Consolas, monospace">单一时间截点 · 严格历史特征 · 软容量惩罚</text>
+  <rect x="45" y="40" width="5" height="26" rx="2.5" fill="#A0650A"/>
+  <text x="62" y="60" fill="#17233A" font-size="22" font-weight="600">TC-CCR 方法框架</text>
+  <text x="1195" y="58" text-anchor="end" fill="#8296AC" font-size="14" font-family="Cascadia Code, Consolas, monospace">单一时间截点 · 严格历史特征 · 软容量惩罚</text>
 
   <!-- ① 流水线 -->
-  <text x="45" y="106" fill="#6FA3D8" font-size="14" font-family="Cascadia Code, Consolas, monospace">① 时间一致风险评分</text>
+  <text x="45" y="106" fill="#3E6B96" font-size="14" font-family="Cascadia Code, Consolas, monospace">① 时间一致风险评分</text>
   <g>
-    <rect x="45" y="118" width="218" height="88" rx="10" fill="#131F35" stroke="#FFFFFF" stroke-opacity="0.12"/>
-    <rect x="57" y="109" width="30" height="18" rx="4" fill="#E8A33D" opacity="0.14"/>
-    <text x="72" y="122" text-anchor="middle" fill="#E8A33D" font-size="11" font-family="Cascadia Code, Consolas, monospace">01</text>
-    <text x="154" y="158" text-anchor="middle" fill="#F2F5F9" font-size="18" font-weight="600">数据与时间边界</text>
-    <text x="154" y="184" text-anchor="middle" fill="#9FB3C8" font-size="14.5">标签 / 时间 / 特征</text>
+    <rect x="45" y="118" width="218" height="88" rx="10" fill="#F6F8FB" stroke="#D8E0EA" stroke-width="1.5"/>
+    <rect x="57" y="109" width="30" height="18" rx="4" fill="#A0650A" opacity="0.10"/>
+    <text x="72" y="122" text-anchor="middle" fill="#A0650A" font-size="11" font-family="Cascadia Code, Consolas, monospace">01</text>
+    <text x="154" y="158" text-anchor="middle" fill="#17233A" font-size="18" font-weight="600">数据与时间边界</text>
+    <text x="154" y="184" text-anchor="middle" fill="#2E3A4C" font-size="14.5">标签 / 时间 / 特征</text>
 
-    <rect x="278" y="118" width="218" height="88" rx="10" fill="#131F35" stroke="#FFFFFF" stroke-opacity="0.12"/>
-    <rect x="290" y="109" width="30" height="18" rx="4" fill="#E8A33D" opacity="0.14"/>
-    <text x="305" y="122" text-anchor="middle" fill="#E8A33D" font-size="11" font-family="Cascadia Code, Consolas, monospace">02</text>
-    <text x="387" y="158" text-anchor="middle" fill="#F2F5F9" font-size="18" font-weight="600">严格历史特征</text>
-    <text x="387" y="184" text-anchor="middle" fill="#9FB3C8" font-size="14.5">仅使用当前之前信息</text>
+    <rect x="278" y="118" width="218" height="88" rx="10" fill="#F6F8FB" stroke="#D8E0EA" stroke-width="1.5"/>
+    <rect x="290" y="109" width="30" height="18" rx="4" fill="#A0650A" opacity="0.10"/>
+    <text x="305" y="122" text-anchor="middle" fill="#A0650A" font-size="11" font-family="Cascadia Code, Consolas, monospace">02</text>
+    <text x="387" y="158" text-anchor="middle" fill="#17233A" font-size="18" font-weight="600">严格历史特征</text>
+    <text x="387" y="184" text-anchor="middle" fill="#2E3A4C" font-size="14.5">仅使用当前之前信息</text>
 
-    <rect x="511" y="118" width="218" height="88" rx="10" fill="#131F35" stroke="#FFFFFF" stroke-opacity="0.12"/>
-    <rect x="523" y="109" width="30" height="18" rx="4" fill="#E8A33D" opacity="0.14"/>
-    <text x="538" y="122" text-anchor="middle" fill="#E8A33D" font-size="11" font-family="Cascadia Code, Consolas, monospace">03</text>
-    <text x="620" y="158" text-anchor="middle" fill="#F2F5F9" font-size="18" font-weight="600">扩展窗口 OOF</text>
-    <text x="620" y="184" text-anchor="middle" fill="#9FB3C8" font-size="14.5">训练期风险分数</text>
+    <rect x="511" y="118" width="218" height="88" rx="10" fill="#F6F8FB" stroke="#D8E0EA" stroke-width="1.5"/>
+    <rect x="523" y="109" width="30" height="18" rx="4" fill="#A0650A" opacity="0.10"/>
+    <text x="538" y="122" text-anchor="middle" fill="#A0650A" font-size="11" font-family="Cascadia Code, Consolas, monospace">03</text>
+    <text x="620" y="158" text-anchor="middle" fill="#17233A" font-size="18" font-weight="600">扩展窗口 OOF</text>
+    <text x="620" y="184" text-anchor="middle" fill="#2E3A4C" font-size="14.5">训练期风险分数</text>
 
-    <rect x="744" y="118" width="218" height="88" rx="10" fill="#1A2334" stroke="#E8A33D" stroke-opacity="0.55" stroke-width="1.4"/>
-    <rect x="756" y="109" width="30" height="18" rx="4" fill="#E8A33D" opacity="0.14"/>
-    <text x="771" y="122" text-anchor="middle" fill="#E8A33D" font-size="11" font-family="Cascadia Code, Consolas, monospace">04</text>
-    <text x="853" y="158" text-anchor="middle" fill="#E8A33D" font-size="18" font-weight="600">OOF 阈值学习</text>
-    <text x="853" y="184" text-anchor="middle" fill="#9FB3C8" font-size="14.5">候选报警率扫描</text>
+    <rect x="744" y="118" width="218" height="88" rx="10" fill="#FDF6EA" stroke="#A0650A" stroke-opacity="0.6" stroke-width="1.4"/>
+    <rect x="756" y="109" width="30" height="18" rx="4" fill="#A0650A" opacity="0.12"/>
+    <text x="771" y="122" text-anchor="middle" fill="#A0650A" font-size="11" font-family="Cascadia Code, Consolas, monospace">04</text>
+    <text x="853" y="158" text-anchor="middle" fill="#A0650A" font-size="18" font-weight="600">OOF 阈值学习</text>
+    <text x="853" y="184" text-anchor="middle" fill="#2E3A4C" font-size="14.5">候选报警率扫描</text>
 
-    <rect x="977" y="118" width="218" height="88" rx="10" fill="#131F35" stroke="#FFFFFF" stroke-opacity="0.12" stroke-dasharray="6 5"/>
-    <rect x="989" y="109" width="30" height="18" rx="4" fill="#E8A33D" opacity="0.14"/>
-    <text x="1004" y="122" text-anchor="middle" fill="#E8A33D" font-size="11" font-family="Cascadia Code, Consolas, monospace">05</text>
-    <text x="1086" y="158" text-anchor="middle" fill="#F2F5F9" font-size="18" font-weight="600">未来测试评估</text>
-    <text x="1086" y="184" text-anchor="middle" fill="#9FB3C8" font-size="14.5">固定阈值与成本分解</text>
+    <rect x="977" y="118" width="218" height="88" rx="10" fill="#F6F8FB" stroke="#D8E0EA" stroke-width="1.5" stroke-dasharray="6 5"/>
+    <rect x="989" y="109" width="30" height="18" rx="4" fill="#A0650A" opacity="0.10"/>
+    <text x="1004" y="122" text-anchor="middle" fill="#A0650A" font-size="11" font-family="Cascadia Code, Consolas, monospace">05</text>
+    <text x="1086" y="158" text-anchor="middle" fill="#17233A" font-size="18" font-weight="600">未来测试评估</text>
+    <text x="1086" y="184" text-anchor="middle" fill="#2E3A4C" font-size="14.5">固定阈值与成本分解</text>
 
-    <line x1="263" y1="162" x2="274" y2="162" stroke="#6FA3D8" stroke-opacity="0.8" stroke-width="2" marker-end="url(#arw)"/>
-    <line x1="496" y1="162" x2="507" y2="162" stroke="#6FA3D8" stroke-opacity="0.8" stroke-width="2" marker-end="url(#arw)"/>
-    <line x1="729" y1="162" x2="740" y2="162" stroke="#6FA3D8" stroke-opacity="0.8" stroke-width="2" marker-end="url(#arw)"/>
-    <line x1="962" y1="162" x2="973" y2="162" stroke="#E8A33D" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arwAmber)"/>
+    <line x1="263" y1="162" x2="274" y2="162" stroke="#7C97B4" stroke-width="2" marker-end="url(#arw)"/>
+    <line x1="496" y1="162" x2="507" y2="162" stroke="#7C97B4" stroke-width="2" marker-end="url(#arw)"/>
+    <line x1="729" y1="162" x2="740" y2="162" stroke="#7C97B4" stroke-width="2" marker-end="url(#arw)"/>
+    <line x1="962" y1="162" x2="973" y2="162" stroke="#A0650A" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arwAmber)"/>
   </g>
 
   <!-- ② 原则 + 代价目标 -->
-  <text x="45" y="266" fill="#6FA3D8" font-size="14" font-family="Cascadia Code, Consolas, monospace">② 容量约束代价目标</text>
+  <text x="45" y="266" fill="#3E6B96" font-size="14" font-family="Cascadia Code, Consolas, monospace">② 容量约束代价目标</text>
 
   <g>
-    <rect x="45" y="276" width="520" height="88" rx="12" fill="#131F35" stroke="#FFFFFF" stroke-opacity="0.12"/>
-    <text x="69" y="306" fill="#6FA3D8" font-size="13.5" font-family="Cascadia Code, Consolas, monospace">框架原则</text>
-    <text x="69" y="330" fill="#F2F5F9" font-size="15.5" font-weight="600">风险排序 · 阈值选择 · 业务计价，三者分开构建、分开检查</text>
-    <text x="69" y="352" fill="#9FB3C8" font-size="13.5">资源或成本结构变化时，无需重训模型，只需重新估计报警边界</text>
+    <rect x="45" y="276" width="520" height="88" rx="12" fill="#F6F8FB" stroke="#D8E0EA" stroke-width="1.5"/>
+    <text x="69" y="306" fill="#3E6B96" font-size="13.5" font-family="Cascadia Code, Consolas, monospace">框架原则</text>
+    <text x="69" y="330" fill="#17233A" font-size="15.5" font-weight="600">风险排序 · 阈值选择 · 业务计价，三者分开构建、分开检查</text>
+    <text x="69" y="352" fill="#5E7A99" font-size="13.5">资源或成本结构变化时，无需重训模型，只需重新估计报警边界</text>
   </g>
 
-  <line x1="853" y1="206" x2="853" y2="270" stroke="#E8A33D" stroke-width="2.2" marker-end="url(#arwAmber)"/>
-  <line x1="1086" y1="206" x2="1086" y2="270" stroke="#6FA3D8" stroke-opacity="0.7" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arw)"/>
-  <text x="1195" y="244" text-anchor="end" fill="#5E7A99" font-size="13.5">※ 测试标签仅用于最终评价</text>
+  <line x1="853" y1="206" x2="853" y2="270" stroke="#A0650A" stroke-width="2.2" marker-end="url(#arwAmber)"/>
+  <line x1="1086" y1="206" x2="1086" y2="270" stroke="#7C97B4" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arw)"/>
+  <text x="1195" y="244" text-anchor="end" fill="#8296AC" font-size="13">※ 测试标签仅用于最终评价</text>
 
   <g>
-    <rect x="595" y="276" width="600" height="88" rx="12" fill="#131F35" stroke="#E8A33D" stroke-opacity="0.45" stroke-width="1.4"/>
-    <text x="619" y="312" fill="#E8A33D" font-size="21" font-family="Cascadia Code, Consolas, monospace">L_cap(t) =</text>
-    <g fill="#182640" stroke="#FFFFFF" stroke-opacity="0.14">
+    <rect x="595" y="276" width="600" height="88" rx="12" fill="#FDF9F2" stroke="#A0650A" stroke-opacity="0.4" stroke-width="1.4"/>
+    <text x="619" y="312" fill="#A0650A" font-size="21" font-family="Cascadia Code, Consolas, monospace">L_cap(t) =</text>
+    <g fill="#FFFFFF" stroke="#D8E0EA" stroke-width="1.2">
       <rect x="726" y="322" width="88" height="30" rx="7"/>
       <rect x="834" y="322" width="88" height="30" rx="7"/>
       <rect x="942" y="322" width="88" height="30" rx="7"/>
       <rect x="1050" y="322" width="118" height="30" rx="7"/>
     </g>
-    <text x="770" y="342" text-anchor="middle" fill="#F2F5F9" font-size="14.5">漏报损失</text>
-    <text x="878" y="342" text-anchor="middle" fill="#F2F5F9" font-size="14.5">误报处理</text>
-    <text x="986" y="342" text-anchor="middle" fill="#F2F5F9" font-size="14.5">人工复核</text>
-    <text x="1109" y="342" text-anchor="middle" fill="#F2F5F9" font-size="14.5">超容量拥塞</text>
-    <text x="822" y="342" text-anchor="middle" fill="#5E7A99" font-size="15" font-family="Cascadia Code, Consolas, monospace">+</text>
-    <text x="930" y="342" text-anchor="middle" fill="#5E7A99" font-size="15" font-family="Cascadia Code, Consolas, monospace">+</text>
-    <text x="1038" y="342" text-anchor="middle" fill="#5E7A99" font-size="15" font-family="Cascadia Code, Consolas, monospace">+</text>
+    <text x="770" y="342" text-anchor="middle" fill="#17233A" font-size="14">漏报损失</text>
+    <text x="878" y="342" text-anchor="middle" fill="#17233A" font-size="14">误报处理</text>
+    <text x="986" y="342" text-anchor="middle" fill="#17233A" font-size="14">人工复核</text>
+    <text x="1109" y="342" text-anchor="middle" fill="#17233A" font-size="14">超容量拥塞</text>
+    <text x="822" y="342" text-anchor="middle" fill="#8296AC" font-size="15" font-family="Cascadia Code, Consolas, monospace">+</text>
+    <text x="930" y="342" text-anchor="middle" fill="#8296AC" font-size="15" font-family="Cascadia Code, Consolas, monospace">+</text>
+    <text x="1038" y="342" text-anchor="middle" fill="#8296AC" font-size="15" font-family="Cascadia Code, Consolas, monospace">+</text>
   </g>
 
-  <line x1="895" y1="364" x2="895" y2="402" stroke="#6FA3D8" stroke-opacity="0.8" stroke-width="2" marker-end="url(#arw)"/>
+  <line x1="895" y1="364" x2="895" y2="402" stroke="#7C97B4" stroke-width="2" marker-end="url(#arw)"/>
 
   <!-- ③ Pareto 带 -->
   <g>
-    <rect x="45" y="408" width="1150" height="160" rx="14" fill="#131F35" stroke="#FFFFFF" stroke-opacity="0.12"/>
-    <text x="69" y="440" fill="#6FA3D8" font-size="14" font-family="Cascadia Code, Consolas, monospace">③ Pareto 候选带 · TC-MOICR-XGB</text>
-    <text x="1171" y="440" text-anchor="end" fill="#5E7A99" font-size="13.5" font-family="Cascadia Code, Consolas, monospace">OOF 成本 · Recall · Precision@K · OverCapRate</text>
+    <rect x="45" y="408" width="1150" height="160" rx="14" fill="#F9FBFD" stroke="#D8E0EA" stroke-width="1.5"/>
+    <text x="69" y="440" fill="#3E6B96" font-size="14" font-family="Cascadia Code, Consolas, monospace">③ Pareto 候选带 · TC-MOICR-XGB</text>
+    <text x="1171" y="440" text-anchor="end" fill="#8296AC" font-size="13.5" font-family="Cascadia Code, Consolas, monospace">OOF 成本 · Recall · Precision@K · OverCapRate</text>
 
-    <rect x="69" y="456" width="352" height="86" rx="10" fill="#182640" stroke="#FFFFFF" stroke-opacity="0.10"/>
-    <rect x="69" y="456" width="4" height="86" rx="2" fill="#7FB069"/>
-    <text x="93" y="492" fill="#F2F5F9" font-size="19" font-weight="600">成本优先</text>
-    <text x="93" y="520" fill="#9FB3C8" font-size="14.5">压低总成本 · 日常稳定审核</text>
+    <rect x="69" y="456" width="352" height="86" rx="10" fill="#FFFFFF" stroke="#D8E0EA" stroke-width="1.2"/>
+    <rect x="69" y="456" width="4" height="86" rx="2" fill="#5F8D5F"/>
+    <text x="93" y="492" fill="#17233A" font-size="19" font-weight="600">成本优先</text>
+    <text x="93" y="520" fill="#5E7A99" font-size="14">压低总成本 · 日常稳定审核</text>
 
-    <rect x="443" y="456" width="352" height="86" rx="10" fill="#182640" stroke="#FFFFFF" stroke-opacity="0.10"/>
-    <rect x="443" y="456" width="4" height="86" rx="2" fill="#6FA3D8"/>
-    <text x="467" y="492" fill="#F2F5F9" font-size="19" font-weight="600">平衡</text>
-    <text x="467" y="520" fill="#9FB3C8" font-size="14.5">兼顾召回与容量 · 稳健风险运营</text>
+    <rect x="443" y="456" width="352" height="86" rx="10" fill="#FFFFFF" stroke="#D8E0EA" stroke-width="1.2"/>
+    <rect x="443" y="456" width="4" height="86" rx="2" fill="#3E6B96"/>
+    <text x="467" y="492" fill="#17233A" font-size="19" font-weight="600">平衡</text>
+    <text x="467" y="520" fill="#5E7A99" font-size="14">兼顾召回与容量 · 稳健风险运营</text>
 
-    <rect x="817" y="456" width="352" height="86" rx="10" fill="#182640" stroke="#FFFFFF" stroke-opacity="0.10"/>
-    <rect x="817" y="456" width="4" height="86" rx="2" fill="#E8A33D"/>
-    <text x="841" y="492" fill="#F2F5F9" font-size="19" font-weight="600">高召回</text>
-    <text x="841" y="520" fill="#9FB3C8" font-size="14.5">扩大覆盖面 · 风险峰值或监管期</text>
+    <rect x="817" y="456" width="352" height="86" rx="10" fill="#FFFFFF" stroke="#D8E0EA" stroke-width="1.2"/>
+    <rect x="817" y="456" width="4" height="86" rx="2" fill="#A0650A"/>
+    <text x="841" y="492" fill="#17233A" font-size="19" font-weight="600">高召回</text>
+    <text x="841" y="520" fill="#5E7A99" font-size="14">扩大覆盖面 · 风险峰值或监管期</text>
   </g>
 
-  <text x="45" y="610" fill="#5E7A99" font-size="14.5">注：TC-MOICR-XGB 不是新的分类器，而是把同一 XGBoost 风险排序映射为不同容量与成本偏好下的部署方案；超容量部分按软二次惩罚计价，测试标签仅用于最终评价。</text>
+  <text x="45" y="610" fill="#5E7A99" font-size="14">注：TC-MOICR-XGB 不是新的分类器，而是把同一 XGBoost 风险排序映射为不同容量与成本偏好下的部署方案；超容量部分按软二次惩罚计价，测试标签仅用于最终评价。</text>
 </svg>

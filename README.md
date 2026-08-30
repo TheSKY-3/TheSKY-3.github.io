@@ -57,6 +57,8 @@ node scripts/check-dist.mjs # 安全扫描（必须输出 OK 才能发布）
 | `--c-ice` | `#3E6B96` | 链接、辅助强调 |
 
 - 字体：系统字体栈（零外部请求）；数字用等宽 `--font-mono`。
+- **背景层次**（2026-08-30 加）：Hero 用"环境光晕 + 26px 细点阵"（CSS radial-gradient，克制不花哨）；首页偶数板块交替纯白色带（`main > .section:nth-of-type(even)`）；详情页顶部同款光晕。改配色只动 global.css 与 Hero 的 background。
+- **详情页排版**：整栏居中（容器 920px、文字列 760px 对齐居中、`.block-wide` 图表全宽）——居中的是"栏"，文字仍左对齐。
 - **Hero 头像**：`site/public/images/avatar.jpg`（480×480 方形裁切，CSS 圆框），替换照片直接覆盖该文件即可。
 - 项目卡缩略图：banner 原生 **4:1**（1200×300），CSS `aspect-ratio: 4/1; object-fit: cover`，**零裁切**——banner 标题从 x=60 开始，改比例会切字。
 - banner 设计语言统一（深底 `#0B1220` + 琥珀强调），但**每项目一个专属图形母题**（Olist=评分阶梯、GA4=漏斗、Criteo=增量双曲线），避免"同一个模板只换字"的雷同感；banner 详细规范在 `docs/GITHUB-HANDBOOK.md`。

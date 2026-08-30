@@ -33,7 +33,14 @@ import { profile, heroStats } from '../data/profile';
   </div>
 </section>
 <style>
-  .hero { padding: var(--space-5) 0 var(--space-4); }
+  .hero {
+    padding: var(--space-5) 0 var(--space-4);
+    background:
+      radial-gradient(1100px 460px at 12% -10%, rgba(160, 101, 10, 0.07), transparent 62%),
+      radial-gradient(950px 420px at 88% -16%, rgba(62, 107, 150, 0.10), transparent 62%),
+      radial-gradient(rgba(23, 35, 58, 0.05) 1px, transparent 1.6px);
+    background-size: auto, auto, 26px 26px;
+  }
   .hero-head { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-3); }
   .avatar {
     width: 128px; height: 128px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
