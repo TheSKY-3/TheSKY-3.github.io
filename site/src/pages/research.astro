@@ -17,7 +17,7 @@ import { research } from '../data/research';
         </section>
       ))}
       {research.figures && (
-        <section class="block">
+        <section class="block block-wide">
           <h2>结果图表</h2>
           {research.figures.map((f) => (
             <figure class="fig">
@@ -37,6 +37,8 @@ import { research } from '../data/research';
   .subtitle { color: var(--c-paper); font-size: 17px; margin: 0; }
   .period { margin-top: var(--space-1); }
   .block { margin-top: var(--space-4); max-width: 760px; }
+  .block-wide { max-width: none; }
+  .block-wide .fig img { width: 100%; }
   .block h2 { font-size: 20px; }
   .fig { margin: var(--space-3) 0; }
   .fig img { max-width: 100%; border: 1px solid var(--c-line); border-radius: 10px; background: #fff; }
