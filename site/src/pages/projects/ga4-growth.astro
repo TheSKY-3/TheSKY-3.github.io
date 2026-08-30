@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { projects } from '../../data/projects';
+const p = projects.find((x) => x.slug === 'ga4-growth')!;
+---
+<BaseLayout title={`${p.title} · 吴柏高`} description={p.summary}>
+  <article class="section">
+    <div class="container">
+      <a class="back" href="/#projects">← 返回项目列表</a>
+      <span class="tag">{p.eyebrow}</span>
+      <h1>{p.title}</h1>
+      <p class="num period">{p.period}</p>
+      {p.sections.map((s) => (
+        <section class="block">
+          <h2>{s.heading}</h2>
+          <p>{s.body}</p>
+        </section>
+      ))}
+      <div class="tags">{p.tags.map((t) => <span class="tag">{t}</span>)}</div>
+      {p.boundary && <p class="boundary">{p.boundary}</p>}
+    </div>
+  </article>
+</BaseLayout>
+<style>
+  .back { font-family: var(--font-mono); font-size: 13px; display: inline-block; margin-bottom: var(--space-3); }
+  h1 { font-size: clamp(30px, 5vw, 44px); margin: var(--space-2) 0 var(--space-1); }
+  .period { margin-top: 0; }
+  .block { margin-top: var(--space-4); max-width: 760px; }
+  .block h2 { font-size: 20px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--space-4); }
+  .boundary { margin-top: var(--space-4); font-size: 13px; color: var(--c-ice); border-top: 1px dashed var(--c-line); padding-top: var(--space-2); }
+</style>

@@ -4,7 +4,7 @@ import { projects } from '../data/projects';
 <section class="section" id="projects">
   <div class="container">
     <span class="eyebrow">项目作品集 / PROJECTS</span>
-    <h2>三个可以深入追问的项目</h2>
+    <h2>四个可以深入追问的项目</h2>
     <div class="proj-grid">
       {projects.map((p) => (
         <a class="card proj-card" href={`/projects/${p.slug}/`}>
@@ -19,7 +19,7 @@ import { projects } from '../data/projects';
   </div>
 </section>
 <style>
-  .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-2); margin-top: var(--space-3); }
+  .proj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-2); margin-top: var(--space-3); }
   .proj-card { display: flex; flex-direction: column; gap: var(--space-1); color: var(--c-mist); }
   .proj-card:hover { border-color: var(--c-amber); }
   .proj-card h3 { font-size: 18px; margin: 0; }
