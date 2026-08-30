@@ -10,6 +10,10 @@ import { profile, heroStats } from '../data/profile';
     <div class="intents">
       {profile.intents.map((t) => <span class="tag intent">{t}</span>)}
     </div>
+    <div class="quick-links">
+      <a class="btn btn-primary" href={profile.github} target="_blank" rel="noopener noreferrer">GitHub 主页 ↗</a>
+      <a class="btn" href={`mailto:${profile.email}`}>邮件联系</a>
+    </div>
     <ul class="stats">
       {heroStats.map((s) => (
         <li><span class="stat-num">{s.value}</span><span class="stat-label">{s.label}</span></li>
@@ -30,6 +34,14 @@ import { profile, heroStats } from '../data/profile';
   .intro { max-width: 760px; font-size: 15px; margin: 0 0 var(--space-3); }
   .intents { display: flex; gap: var(--space-2); flex-wrap: wrap; margin-bottom: var(--space-3); }
   .intent { color: var(--c-amber); border-color: var(--c-amber); }
+  .quick-links { display: flex; gap: var(--space-2); flex-wrap: wrap; margin-bottom: var(--space-4); }
+  .btn {
+    display: inline-block; padding: 8px 18px; border: 1px solid var(--c-line);
+    border-radius: 8px; background: var(--c-panel); color: var(--c-paper);
+    font-size: 14px; font-weight: 500; transition: border-color .15s, color .15s;
+  }
+  .btn:hover { border-color: var(--c-amber); color: var(--c-amber); }
+  .btn-primary { border-color: var(--c-amber); color: var(--c-amber); }
   .stats { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-2); padding: 0; margin: 0 0 var(--space-3); }
   .stats li { background: var(--c-panel); border: 1px solid var(--c-line); border-radius: 10px; padding: var(--space-2); display: flex; flex-direction: column; gap: 4px; }
   .stat-num { font-family: var(--font-mono); font-size: clamp(20px, 3vw, 28px); color: var(--c-amber); }

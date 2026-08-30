@@ -1,0 +1,9 @@
+<svg width="1200" height="300" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="1200" height="300" fill="#0B1220"/>
+  <path d="M0 250 C 300 242, 520 200, 720 130 S 1080 50, 1200 40" stroke="#23304A" stroke-width="4" fill="none"/>
+  <circle cx="720" cy="130" r="8" fill="#E8A33D"/>
+  <text x="60" y="105" fill="#F2F5F9" font-size="46" font-weight="bold">广告增量审计 · Uplift</text>
+  <text x="60" y="158" fill="#8FB8D8" font-size="25">谁本来就会转化，谁因广告才转化（Criteo 随机实验）</text>
+  <text x="60" y="215" fill="#E8A33D" font-size="19" font-family="Cascadia Code, Consolas, monospace">1398 万行 · ITT → S/T/DR-Learner → 覆盖策略模拟</text>
+  <text x="60" y="252" fill="#C6CFDC" font-size="17" font-family="Cascadia Code, Consolas, monospace">Python · Causal Inference · AUUC / Qini</text>
+</svg>

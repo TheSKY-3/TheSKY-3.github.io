@@ -7,6 +7,7 @@ export const profile = {
   availability: "每周 4-5 天 · 可实习 3 个月以上 · 到岗时间可协商",
   email: "1525546469@qq.com",
   location: "广州",
+  github: "https://github.com/TheSKY-3",
 };
 
 export const heroStats = [

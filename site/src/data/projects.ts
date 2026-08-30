@@ -16,6 +16,7 @@ export interface Project {
   period: string;
   summary: string;
   tags: string[];
+  thumbnail?: { src: string; alt: string };
   sections: ProjectSection[];
   figures?: ProjectFigure[];
   boundary?: string;
@@ -30,6 +31,7 @@ export const projects: Project[] = [
     summary:
       "把 9 张业务表变成经营决策看板：MySQL + Python 沉淀 KPI 指标体系，用 9.6 万笔订单证明「履约延迟是口碑的头号杀手」——准时送达评分 4.29，迟到 6 天以上只剩 1.74。",
     tags: ["MySQL", "Python · Pandas", "Power BI", "Docker"],
+    thumbnail: { src: "/images/banners/olist.svg", alt: "Olist 经营分析项目横幅" },
     figures: [
       { src: "/images/olist/review_by_delay.png", alt: "履约时效与评分的关系", caption: "评分随履约延迟逐档下滑：准时 4.29 → 迟到 6 天以上 1.74" },
       { src: "/images/olist/monthly_gmv.png", alt: "月度 GMV 趋势", caption: "月度 GMV 走势（2018-09 起为数据截断期）" },
@@ -74,6 +76,7 @@ export const projects: Project[] = [
     summary:
       "基于 BigQuery GA4 公共电商数据（429 万事件、27 万用户），完成「测量审计 → 严格漏斗 → 问题定位 → 机会量化 → 实验功效 → 监控设计」的增长分析闭环，17 条 SQL 全部可审计。",
     tags: ["BigQuery", "SQL", "漏斗分析", "Wilson 区间", "实验功效", "LaTeX 报告"],
+    thumbnail: { src: "/images/banners/ga4.svg", alt: "GA4 增长分析项目横幅" },
     sections: [
       {
         heading: "背景与目标",
@@ -109,6 +112,7 @@ export const projects: Project[] = [
     summary:
       "基于 Criteo 去偏公开随机实验数据（约 1398 万行），完成 ITT → 响应预测 → S/T/DR-Learner Uplift 比较 → AUUC/Qini 评估 → 覆盖策略模拟的完整分析链。",
     tags: ["因果推断", "Uplift", "ITT", "AUUC / Qini", "Python"],
+    thumbnail: { src: "/images/banners/criteo.svg", alt: "Criteo 因果增量分析项目横幅" },
     sections: [
       {
         heading: "核心问题：一条可验证的决策链",

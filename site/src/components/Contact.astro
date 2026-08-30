@@ -7,9 +7,15 @@ import { profile } from '../data/profile';
     <h2>简历与项目细节，欢迎邮件索取</h2>
     <p>{profile.location} · {profile.availability}</p>
     <a class="mail" href={`mailto:${profile.email}`}>{profile.email}</a>
+    <p class="gh">
+      项目代码与复现细节：<a href={profile.github} target="_blank" rel="noopener noreferrer">github.com/TheSKY-3 ↗</a>
+    </p>
   </div>
 </section>
 <style>
   .contact-inner { text-align: left; }
   .mail { font-family: var(--font-mono); font-size: clamp(18px, 3vw, 24px); color: var(--c-amber); }
+  .gh { margin-top: var(--space-2); font-size: 14px; color: var(--c-mist); }
+  .gh a { color: var(--c-ice); font-family: var(--font-mono); }
+  .gh a:hover { color: var(--c-amber); }
 </style>
