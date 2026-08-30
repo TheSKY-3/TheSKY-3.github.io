@@ -77,6 +77,11 @@ export const projects: Project[] = [
       "基于 BigQuery GA4 公共电商数据（429 万事件、27 万用户），完成「测量审计 → 严格漏斗 → 问题定位 → 机会量化 → 实验功效 → 监控设计」的增长分析闭环，17 条 SQL 全部可审计。",
     tags: ["BigQuery", "SQL", "漏斗分析", "Wilson 区间", "实验功效", "LaTeX 报告"],
     thumbnail: { src: "/images/banners/ga4.svg", alt: "GA4 增长分析项目横幅" },
+    figures: [
+      { src: "/images/ga4/funnel_3_stage.png", alt: "全周期三阶段会话漏斗", caption: "会话级三阶段漏斗：77,020 次浏览商品会话中，13.98% 进入结账，6.05% 完成购买" },
+      { src: "/images/ga4/funnel_4_stage_stable.png", alt: "稳定窗口四阶段漏斗损失分解", caption: "稳定窗口四阶段损失分解：浏览→加购流失 78.1%、加购→结账流失 65.8%、结账→购买流失 47.2%——最大瓶颈在漏斗最前端" },
+      { src: "/images/ga4/device_conversion.png", alt: "分设备购买转化率与置信区间", caption: "分设备购买转化率（含 Wilson 95% 区间）：移动端 6.26%、桌面端 5.91%、平板端 5.88%——区间重叠，设备差异大部分属抽样噪声而非确定性问题" },
+    ],
     sections: [
       {
         heading: "背景与目标",
@@ -113,6 +118,11 @@ export const projects: Project[] = [
       "基于 Criteo 去偏公开随机实验数据（约 1398 万行），完成 ITT → 响应预测 → S/T/DR-Learner Uplift 比较 → AUUC/Qini 评估 → 覆盖策略模拟的完整分析链。",
     tags: ["因果推断", "Uplift", "ITT", "AUUC / Qini", "Python"],
     thumbnail: { src: "/images/banners/criteo.svg", alt: "Criteo 因果增量分析项目横幅" },
+    figures: [
+      { src: "/images/criteo/model_comparison.png", alt: "三个 Uplift 模型的验证集 AUUC 对比", caption: "三个 Uplift 模型的验证集 AUUC：固定配置下 S-Learner 在 visit 与 conversion 上均领先 T-Learner 与 DR-Learner" },
+      { src: "/images/criteo/decile_checks.png", alt: "预测分位的实际增量检验", caption: "分位检验：第 1 分位（预测增量最高人群）的实际处理-对照差距显著为正，其余分位接近 0——排序头部有真实信号" },
+      { src: "/images/criteo/policy_simulation.png", alt: "IPW 覆盖比例策略模拟", caption: "IPW 策略模拟：不同覆盖比例下的单位增量事件（visit 约 0.010、conversion 约 0.001），据此提出 visit 前 40%、conversion 前 50% 的候选覆盖规则" },
+    ],
     sections: [
       {
         heading: "核心问题：一条可验证的决策链",
