@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { research } from '../data/research';
+---
+<BaseLayout title={`${research.title} · 吴柏高`} description={research.summary}>
+  <article class="section">
+    <div class="container">
+      <a class="back" href="/#research">← 返回首页研究板块</a>
+      <span class="tag">{research.eyebrow}</span>
+      <h1>{research.title}</h1>
+      <p class="subtitle">{research.subtitle}</p>
+      <p class="num period">{research.period}</p>
+      {research.sections.map((s) => (
+        <section class="block">
+          <h2>{s.heading}</h2>
+          <p>{s.body}</p>
+        </section>
+      ))}
+      <div class="tags">{research.tags.map((t) => <span class="tag">{t}</span>)}</div>
+    </div>
+  </article>
+</BaseLayout>
+<style>
+  .back { font-family: var(--font-mono); font-size: 13px; display: inline-block; margin-bottom: var(--space-3); }
+  h1 { font-size: clamp(28px, 5vw, 42px); margin: var(--space-2) 0 var(--space-1); }
+  .subtitle { color: var(--c-paper); font-size: 17px; margin: 0; }
+  .period { margin-top: var(--space-1); }
+  .block { margin-top: var(--space-4); max-width: 760px; }
+  .block h2 { font-size: 20px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--space-4); }
+</style>

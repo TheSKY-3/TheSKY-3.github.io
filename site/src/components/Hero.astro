@@ -6,6 +6,7 @@ import { profile, heroStats } from '../data/profile';
     <span class="eyebrow">WU BOGAO · PORTFOLIO</span>
     <h1>{profile.name}</h1>
     <p class="tagline">{profile.tagline}</p>
+    <p class="intro">{profile.intro}</p>
     <div class="intents">
       {profile.intents.map((t) => <span class="tag intent">{t}</span>)}
     </div>
@@ -23,12 +24,13 @@ import { profile, heroStats } from '../data/profile';
   </div>
 </section>
 <style>
-  .hero { padding: var(--space-6) 0 var(--space-5); }
+  .hero { padding: var(--space-5) 0 var(--space-4); }
   .hero h1 { font-size: clamp(40px, 7vw, 64px); letter-spacing: 0.02em; margin-bottom: var(--space-1); }
-  .tagline { font-size: clamp(17px, 2.4vw, 21px); color: var(--c-paper); margin: 0 0 var(--space-3); }
-  .intents { display: flex; gap: var(--space-2); flex-wrap: wrap; margin-bottom: var(--space-4); }
+  .tagline { font-size: clamp(17px, 2.4vw, 21px); color: var(--c-paper); margin: 0 0 var(--space-2); }
+  .intro { max-width: 760px; font-size: 15px; margin: 0 0 var(--space-3); }
+  .intents { display: flex; gap: var(--space-2); flex-wrap: wrap; margin-bottom: var(--space-3); }
   .intent { color: var(--c-amber); border-color: var(--c-amber); }
-  .stats { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-2); padding: 0; margin: 0 0 var(--space-4); }
+  .stats { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-2); padding: 0; margin: 0 0 var(--space-3); }
   .stats li { background: var(--c-panel); border: 1px solid var(--c-line); border-radius: 10px; padding: var(--space-2); display: flex; flex-direction: column; gap: 4px; }
   .stat-num { font-family: var(--font-mono); font-size: clamp(20px, 3vw, 28px); color: var(--c-amber); }
   .stat-label { font-size: 13px; color: var(--c-mist); }

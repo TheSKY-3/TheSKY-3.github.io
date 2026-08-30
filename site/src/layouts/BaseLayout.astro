@@ -4,8 +4,8 @@ import '../styles/global.css';
 interface Props { title: string; description: string; }
 const { title, description } = Astro.props;
 const nav = [
-  ["关于", "#about"], ["实习", "#experience"], ["项目", "#projects"],
-  ["研究", "#research"], ["联系", "#contact"],
+  ["项目", "#projects"], ["实习", "#experience"], ["研究", "#research"],
+  ["技能", "#skills"], ["联系", "#contact"],
 ] as const;
 ---
 <html lang="zh-CN">

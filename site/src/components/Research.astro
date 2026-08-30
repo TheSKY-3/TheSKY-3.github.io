@@ -7,12 +7,11 @@ import { research } from '../data/research';
     <h2>{research.title}</h2>
     <p class="meta">{research.eyebrow} · <span class="num">{research.period}</span></p>
     <p class="summary">{research.summary}</p>
-    <ul>{research.points.map((pt) => <li>{pt}</li>)}</ul>
+    <a class="more" href="/research/">阅读研究全文介绍（问题 / 方法 / 结论 / 业务价值）→</a>
   </div>
 </section>
 <style>
   .meta { color: var(--c-ice); font-size: 14px; }
   .summary { max-width: 760px; }
-  ul { max-width: 760px; padding-left: 20px; }
-  li { margin-bottom: var(--space-1); }
+  .more { font-family: var(--font-mono); font-size: 14px; display: inline-block; margin-top: var(--space-2); }
 </style>
