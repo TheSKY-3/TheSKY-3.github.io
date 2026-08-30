@@ -16,6 +16,17 @@ const p = projects.find((x) => x.slug === 'ecom-review-agent')!;
           <p>{s.body}</p>
         </section>
       ))}
+      {p.figures && (
+        <section class="block">
+          <h2>结果图表</h2>
+          {p.figures.map((f) => (
+            <figure class="fig">
+              <img src={f.src} alt={f.alt} loading="lazy" />
+              {f.caption && <figcaption>{f.caption}</figcaption>}
+            </figure>
+          ))}
+        </section>
+      )}
       <div class="tags">{p.tags.map((t) => <span class="tag">{t}</span>)}</div>
       {p.boundary && <p class="boundary">{p.boundary}</p>}
     </div>
@@ -28,5 +39,8 @@ const p = projects.find((x) => x.slug === 'ecom-review-agent')!;
   .block { margin-top: var(--space-4); max-width: 760px; }
   .block h2 { font-size: 20px; }
   .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--space-4); }
+  .fig { margin: var(--space-3) 0; }
+  .fig img { max-width: 100%; border: 1px solid var(--c-line); border-radius: 10px; background: #fff; }
+  .fig figcaption { font-family: var(--font-mono); font-size: 13px; color: var(--c-ice); margin-top: var(--space-1); }
   .boundary { margin-top: var(--space-4); font-size: 13px; color: var(--c-ice); border-top: 1px dashed var(--c-line); padding-top: var(--space-2); }
 </style>

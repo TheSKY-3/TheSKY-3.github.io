@@ -3,6 +3,12 @@ export interface ProjectSection {
   body: string;
 }
 
+export interface ProjectFigure {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
 export interface Project {
   slug: "olist" | "ga4-growth" | "ecom-review-agent" | "criteo-uplift";
   eyebrow: string;
@@ -11,6 +17,7 @@ export interface Project {
   summary: string;
   tags: string[];
   sections: ProjectSection[];
+  figures?: ProjectFigure[];
   boundary?: string;
 }
 
@@ -21,12 +28,21 @@ export const projects: Project[] = [
     title: "Olist 巴西电商经营分析",
     period: "2024.07 - 2024.09",
     summary:
-      "MySQL + Python 整合 9 张业务表，构建 GMV、客单价、准时履约率等指标体系，并在 Power BI 定位品类与履约环节的经营问题。",
+      "把 9 张业务表变成经营决策看板：MySQL + Python 沉淀 KPI 指标体系，用 9.6 万笔订单证明「履约延迟是口碑的头号杀手」——准时送达评分 4.29，迟到 6 天以上只剩 1.74。",
     tags: ["MySQL", "Python · Pandas", "Power BI", "Docker"],
+    figures: [
+      { src: "/images/olist/review_by_delay.png", alt: "履约时效与评分的关系", caption: "评分随履约延迟逐档下滑：准时 4.29 → 迟到 6 天以上 1.74" },
+      { src: "/images/olist/monthly_gmv.png", alt: "月度 GMV 趋势", caption: "月度 GMV 走势（2018-09 起为数据截断期）" },
+      { src: "/images/olist/top_categories_gmv.png", alt: "Top 类目 GMV", caption: "高贡献类目 GMV 排名" },
+    ],
     sections: [
       {
         heading: "背景与目标",
         body: "基于 Kaggle 公开的 Olist 电商多表数据，按真实公司的数据链路完整跑通一遍：数据落库 → 数仓视图 → KPI 分析 → 看板呈现，形成可写入简历、可复现、可发布的经营分析作品集项目。",
+      },
+      {
+        heading: "核心发现：履约延迟是口碑的头号杀手",
+        body: "把 9.6 万笔有履约时效的订单按延迟程度分桶：准时或提前送达的订单平均评分 4.29（89,936 单）；迟到 1-2 天降到 3.52；迟到 3-5 天 2.47；迟到 6 天以上只剩 1.74（3,764 单）。对运营的含义：差评治理的抓手不在客服话术，在履约时效的最后一公里——把「迟到 6 天+」的订单量压下去，评分大盘自然回来。",
       },
       {
         heading: "数据与建模",
