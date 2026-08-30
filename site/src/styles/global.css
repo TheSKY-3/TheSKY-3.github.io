@@ -35,16 +35,27 @@ a:hover { color: var(--c-amber); }
    （上下边框由 .section 自身的 border-top 与页脚衔接，不重复加线） */
 main > .section:nth-of-type(even) { background: var(--c-panel); }
 
-/* 详情页（article）：整栏居中 + 顶部环境光晕。
+/* 详情页（article）：整栏居中 + 环境光晕 + 全页细点阵。
    文字列 760px 对齐居中，图表（.block-wide）保持容器全宽 */
 article.section {
   background:
     radial-gradient(900px 300px at 18% -8%, rgba(160, 101, 10, 0.05), transparent 62%),
-    radial-gradient(820px 280px at 85% -12%, rgba(62, 107, 150, 0.08), transparent 62%);
+    radial-gradient(820px 280px at 85% -12%, rgba(62, 107, 150, 0.08), transparent 62%),
+    radial-gradient(rgba(23, 35, 58, 0.04) 1px, transparent 1.6px);
+  background-size: auto, auto, 26px 26px;
 }
 article.section .container { max-width: 920px; }
 article.section .container > * { margin-inline: auto; max-width: 760px; }
 article.section .container > .block-wide { max-width: none; }
+
+/* 小节标题琥珀竖条：与框架图/卡片强调条同一设计语言 */
+article.section h2, .section > .container > h2 {
+  position: relative; padding-left: 14px;
+}
+article.section h2::before, .section > .container > h2::before {
+  content: ""; position: absolute; left: 0; top: 0.26em;
+  width: 4px; height: 1.05em; border-radius: 2px; background: var(--c-amber);
+}
 .eyebrow {
   font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.12em;
   color: var(--c-ice); text-transform: uppercase; display: block; margin-bottom: var(--space-2);
@@ -52,6 +63,7 @@ article.section .container > .block-wide { max-width: none; }
 .card {
   background: var(--c-panel); border: 1px solid var(--c-line);
   border-radius: 10px; padding: var(--space-3);
+  box-shadow: 0 1px 2px rgba(23, 35, 58, 0.04), 0 6px 16px rgba(23, 35, 58, 0.05);
 }
 .tag {
   font-family: var(--font-mono); font-size: 12px; color: var(--c-ice);
