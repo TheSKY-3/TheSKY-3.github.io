@@ -16,7 +16,7 @@
 | `ga4-ecommerce-growth` | 私有 | `D:\eng_project\数据分析_产品经理\ga4_ecommerce_growth_project` | 结果图在 `paper/figures/`；**转公开前必须审查 `docs/source_context/`** |
 | `criteo-uplift` | 私有 | `D:\eng_project\criteo-uplift` | 从 `D:\eng_project\Criteo\.worktrees\foundation` 干净提取；**旧 `D:\eng_project\Criteo` 仓库 git 历史含简历 docx，永不推送** |
 | `fraud-tccr` | 私有 | `D:\eng_project\run\金融欺诈代码包_V2_修复版_FINAL\金融欺诈代码包_V2_修复版_FINAL - 副本` | 论文投稿配套（在投）；投稿 tex/PDF/图在 `paper/`；data 1.1G / outputs 7.6G 已 gitignore；docs/superpowers 等内部文档已排除；**论文录用前保持私有，tex 不单独公开** |
-| ECom Review Agent | **未上传** | `D:\eng_project\电商AGENT` | 等用户吃透项目（大白话讲解过关）后再传；届时剔除 `简历`、`规划` 等私人文件夹 |
+| `ecom-review-intelligence` | 私有 | 推送仓库 `D:\eng_project\ecom-review-intelligence`（**全新 git 历史**） | 源在 `D:\eng_project\电商AGENT`（其自身 .git 历史含私人内容，**永不推送**）；副本已排除 .venv/data/.tools/.task*/output/简历/规划/学习路线；banner 母题=证据卡堆叠；原技术 README 移至 docs/engineering-readme.md |
 
 网络：所有 GitHub 推送/gh 命令走代理 `HTTPS_PROXY=http://127.0.0.1:7890`（git 已配全局 github.com 代理）。
 
@@ -55,10 +55,11 @@
 3. **原始数据**永不入库。
 4. 仓库暂不公开是用户要求；逐个转公开前走上面的清单。
 
-## 待办快照（2026-08-30）
+## 待办快照（2026-08-30 晚）
 
+- [x] ECom 已建仓上传（ecom-review-intelligence，私有，全新历史）；网站 ECom 详情页已含架构图 + 三大工作流实测截图 + 业务价值叙事
 - [ ] 用户检查 profile 侧公开仓库隐私 → 满意后按清单逐个转公开
-- [ ] 转公开后：网站详情页加「查看代码」链接 + profile 页 Pin 四个项目仓库（UI 操作）
-- [ ] ECom：大白话讲解过关 → 剔除私人文件夹 → 展示 README + banner → 上传私有
+- [ ] 转公开后：网站详情页加「查看代码」链接 + profile 页 Pin 五个项目仓库（UI 操作）
 - [ ] 论文录用后：fraud-tccr 转公开 + 网站研究板块改「已录用」
 - [ ] （可选）fraud-tccr 补 banner（成本-容量曲线母题）
+- [ ] ECom 大白话讲解补课仍建议进行（用户自评尚未吃透；面试要能讲清四层架构与三道防编造设计）
