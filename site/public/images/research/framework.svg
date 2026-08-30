@@ -1,0 +1,73 @@
+<svg width="1160" height="620" viewBox="0 0 1160 620" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8CA3BC"/>
+    </marker>
+    <marker id="arwA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#A0650A"/>
+    </marker>
+  </defs>
+
+  <rect width="1160" height="620" fill="#FFFFFF"/>
+
+  <text x="40" y="46" fill="#3E6B96" font-size="20" font-weight="600">① 时间一致风险评分</text>
+  <g>
+    <rect x="40" y="66" width="196" height="84" rx="10" fill="#F6F8FB" stroke="#D8E0EA" stroke-width="1.5"/>
+    <text x="138" y="101" text-anchor="middle" fill="#17233A" font-size="19" font-weight="600">数据与时间边界</text>
+    <text x="138" y="130" text-anchor="middle" fill="#2E3A4C" font-size="16">标签 / 时间 / 特征</text>
+
+    <rect x="256" y="66" width="196" height="84" rx="10" fill="#F6F8FB" stroke="#D8E0EA" stroke-width="1.5"/>
+    <text x="354" y="101" text-anchor="middle" fill="#17233A" font-size="19" font-weight="600">严格历史特征</text>
+    <text x="354" y="130" text-anchor="middle" fill="#2E3A4C" font-size="16">仅使用当前之前信息</text>
+
+    <rect x="472" y="66" width="196" height="84" rx="10" fill="#F6F8FB" stroke="#D8E0EA" stroke-width="1.5"/>
+    <text x="570" y="101" text-anchor="middle" fill="#17233A" font-size="19" font-weight="600">扩展窗口 OOF</text>
+    <text x="570" y="130" text-anchor="middle" fill="#2E3A4C" font-size="16">训练期风险分数</text>
+
+    <rect x="688" y="66" width="196" height="84" rx="10" fill="#FDF8F0" stroke="#A0650A" stroke-width="1.8"/>
+    <text x="786" y="101" text-anchor="middle" fill="#A0650A" font-size="19" font-weight="600">OOF 阈值学习</text>
+    <text x="786" y="130" text-anchor="middle" fill="#2E3A4C" font-size="16">候选报警率扫描</text>
+
+    <rect x="904" y="66" width="196" height="84" rx="10" fill="#F6F8FB" stroke="#D8E0EA" stroke-width="1.5"/>
+    <text x="1002" y="101" text-anchor="middle" fill="#17233A" font-size="19" font-weight="600">未来测试评估</text>
+    <text x="1002" y="130" text-anchor="middle" fill="#2E3A4C" font-size="16">固定阈值与成本分解</text>
+
+    <line x1="236" y1="108" x2="252" y2="108" stroke="#8CA3BC" stroke-width="2" marker-end="url(#arw)"/>
+    <line x1="452" y1="108" x2="468" y2="108" stroke="#8CA3BC" stroke-width="2" marker-end="url(#arw)"/>
+    <line x1="668" y1="108" x2="684" y2="108" stroke="#8CA3BC" stroke-width="2" marker-end="url(#arw)"/>
+    <line x1="884" y1="108" x2="900" y2="108" stroke="#8CA3BC" stroke-width="2" marker-end="url(#arw)"/>
+  </g>
+
+  <text x="40" y="212" fill="#3E6B96" font-size="20" font-weight="600">② 容量约束代价风险</text>
+  <text x="770" y="207" text-anchor="end" fill="#5E7A99" font-size="15">※ 测试标签仅用于最终评价，不参与任何选择</text>
+  <line x1="1002" y1="150" x2="1002" y2="226" stroke="#8CA3BC" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arw)"/>
+  <line x1="786" y1="150" x2="786" y2="226" stroke="#A0650A" stroke-width="2.2" marker-end="url(#arwA)"/>
+
+  <g>
+    <rect x="472" y="232" width="628" height="72" rx="12" fill="#FFFFFF" stroke="#A0650A" stroke-width="2"/>
+    <text x="786" y="262" text-anchor="middle" fill="#17233A" font-size="20" font-weight="600">容量约束代价风险 L_cap(t)</text>
+    <text x="786" y="290" text-anchor="middle" fill="#2E3A4C" font-size="17">= 漏报损失 + 误报处理 + 人工复核 + 超容量拥塞</text>
+  </g>
+
+  <line x1="786" y1="304" x2="786" y2="368" stroke="#8CA3BC" stroke-width="2" marker-end="url(#arw)"/>
+
+  <text x="40" y="392" fill="#3E6B96" font-size="20" font-weight="600">③ Pareto 策略选择</text>
+  <g>
+    <rect x="40" y="406" width="1060" height="150" rx="12" fill="#FBFCFE" stroke="#D8E0EA" stroke-width="1.5"/>
+    <text x="64" y="438" fill="#2E3A4C" font-size="17">Pareto 候选带：在 L_cap、Recall、Precision@K、OverCapRate 之间选择可解释策略</text>
+
+    <rect x="64" y="456" width="320" height="80" rx="10" fill="#F2F7F0" stroke="#9DBFA0" stroke-width="1.5"/>
+    <text x="224" y="486" text-anchor="middle" fill="#17233A" font-size="19" font-weight="600">成本优先</text>
+    <text x="224" y="514" text-anchor="middle" fill="#2E3A4C" font-size="15">压低总成本 · 日常稳定审核</text>
+
+    <rect x="420" y="456" width="320" height="80" rx="10" fill="#EEF4FA" stroke="#9FB8D0" stroke-width="1.5"/>
+    <text x="580" y="486" text-anchor="middle" fill="#17233A" font-size="19" font-weight="600">平衡</text>
+    <text x="580" y="514" text-anchor="middle" fill="#2E3A4C" font-size="15">兼顾召回与容量 · 稳健风险运营</text>
+
+    <rect x="776" y="456" width="300" height="80" rx="10" fill="#FBF3EC" stroke="#D3A97C" stroke-width="1.5"/>
+    <text x="926" y="486" text-anchor="middle" fill="#A0650A" font-size="19" font-weight="600">高召回</text>
+    <text x="926" y="514" text-anchor="middle" fill="#2E3A4C" font-size="15">扩大覆盖面 · 风险峰值或监管期</text>
+  </g>
+
+  <text x="40" y="596" fill="#5E7A99" font-size="15">注：图中策略不是新的分类器，而是把同一 XGBoost 风险排序映射为不同容量和成本偏好下的部署方案。</text>
+</svg>
