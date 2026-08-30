@@ -1,7 +1,14 @@
 <svg width="1200" height="300" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Microsoft YaHei, PingFang SC, sans-serif">
   <rect width="1200" height="300" fill="#0B1220"/>
-  <path d="M0 250 C 300 242, 520 200, 720 130 S 1080 50, 1200 40" stroke="#23304A" stroke-width="4" fill="none"/>
-  <circle cx="720" cy="130" r="8" fill="#E8A33D"/>
+  <g>
+    <rect x="820" y="86" width="56" height="160" rx="4" fill="#23304A"/>
+    <rect x="895" y="115" width="56" height="131" rx="4" fill="#2A3D5C"/>
+    <rect x="970" y="154" width="56" height="92" rx="4" fill="#31486B"/>
+    <rect x="1045" y="181" width="56" height="65" rx="4" fill="#E8A33D"/>
+    <line x1="800" y1="246" x2="1130" y2="246" stroke="#23304A" stroke-width="2"/>
+    <text x="820" y="70" fill="#5E7A99" font-size="15" font-family="Cascadia Code, Consolas, monospace">准时 4.29</text>
+    <text x="1028" y="70" fill="#E8A33D" font-size="15" font-family="Cascadia Code, Consolas, monospace">迟到 6 天+ 1.74</text>
+  </g>
   <text x="60" y="105" fill="#F2F5F9" font-size="46" font-weight="bold">Olist 电商经营分析</text>
   <text x="60" y="158" fill="#8FB8D8" font-size="25">9 张业务表 → 一套经营决策看板</text>
   <text x="60" y="215" fill="#E8A33D" font-size="19" font-family="Cascadia Code, Consolas, monospace">准时送达评分 4.29 · 迟到 6 天+ 评分 1.74</text>

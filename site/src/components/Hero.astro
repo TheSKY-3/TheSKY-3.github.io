@@ -3,10 +3,15 @@ import { profile, heroStats } from '../data/profile';
 ---
 <section class="hero" id="hero">
   <div class="container">
-    <span class="eyebrow">WU BOGAO · PORTFOLIO</span>
-    <h1>{profile.name}</h1>
-    <p class="tagline">{profile.tagline}</p>
-    <p class="intro">{profile.intro}</p>
+    <div class="hero-head">
+      <div>
+        <span class="eyebrow">WU BOGAO · PORTFOLIO</span>
+        <h1>{profile.name}</h1>
+        <p class="tagline">{profile.tagline}</p>
+        <p class="intro">{profile.intro}</p>
+      </div>
+      <img class="avatar" src="/images/avatar.jpg" alt="吴柏高证件照" width="128" height="128" />
+    </div>
     <div class="intents">
       {profile.intents.map((t) => <span class="tag intent">{t}</span>)}
     </div>
@@ -29,6 +34,12 @@ import { profile, heroStats } from '../data/profile';
 </section>
 <style>
   .hero { padding: var(--space-5) 0 var(--space-4); }
+  .hero-head { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-3); }
+  .avatar {
+    width: 128px; height: 128px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
+    border: 3px solid var(--c-panel);
+    box-shadow: 0 0 0 1px var(--c-line), 0 4px 14px rgba(23, 35, 58, 0.10);
+  }
   .hero h1 { font-size: clamp(40px, 7vw, 64px); letter-spacing: 0.02em; margin-bottom: var(--space-1); }
   .tagline { font-size: clamp(17px, 2.4vw, 21px); color: var(--c-paper); margin: 0 0 var(--space-2); }
   .intro { max-width: 760px; font-size: 15px; margin: 0 0 var(--space-3); }
@@ -50,5 +61,6 @@ import { profile, heroStats } from '../data/profile';
   .hero-caption { font-size: 13px; color: var(--c-ice); margin-top: var(--space-1); }
   @media (max-width: 640px) {
     .stats { grid-template-columns: repeat(2, 1fr); }
+    .hero-head { flex-direction: column-reverse; }
   }
 </style>

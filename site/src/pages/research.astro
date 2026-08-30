@@ -16,6 +16,17 @@ import { research } from '../data/research';
           <p>{s.body}</p>
         </section>
       ))}
+      {research.figures && (
+        <section class="block">
+          <h2>结果图表</h2>
+          {research.figures.map((f) => (
+            <figure class="fig">
+              <img src={f.src} alt={f.alt} loading="lazy" />
+              <figcaption>{f.caption}</figcaption>
+            </figure>
+          ))}
+        </section>
+      )}
       <div class="tags">{research.tags.map((t) => <span class="tag">{t}</span>)}</div>
     </div>
   </article>
@@ -27,5 +38,8 @@ import { research } from '../data/research';
   .period { margin-top: var(--space-1); }
   .block { margin-top: var(--space-4); max-width: 760px; }
   .block h2 { font-size: 20px; }
+  .fig { margin: var(--space-3) 0; }
+  .fig img { max-width: 100%; border: 1px solid var(--c-line); border-radius: 10px; background: #fff; }
+  .fig figcaption { font-family: var(--font-mono); font-size: 13px; color: var(--c-ice); margin-top: var(--space-1); }
   .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--space-4); }
 </style>

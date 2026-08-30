@@ -1,7 +1,13 @@
 <svg width="1200" height="300" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Microsoft YaHei, PingFang SC, sans-serif">
   <rect width="1200" height="300" fill="#0B1220"/>
-  <path d="M0 250 C 300 242, 520 200, 720 130 S 1080 50, 1200 40" stroke="#23304A" stroke-width="4" fill="none"/>
-  <circle cx="720" cy="130" r="8" fill="#E8A33D"/>
+  <g>
+    <path d="M790 232 C 880 228, 990 200, 1140 118 L 1140 208 C 1000 214, 880 226, 790 244 Z" fill="#E8A33D" opacity="0.14"/>
+    <path d="M790 232 C 880 228, 990 200, 1140 118" stroke="#E8A33D" stroke-width="3.5" fill="none"/>
+    <path d="M790 244 C 880 226, 1000 214, 1140 208" stroke="#3A5273" stroke-width="3" fill="none"/>
+    <circle cx="1140" cy="118" r="6" fill="#E8A33D"/>
+    <text x="872" y="278" fill="#5E7A99" font-size="15" font-family="Cascadia Code, Consolas, monospace">treatment</text>
+    <text x="1002" y="278" fill="#3A5273" font-size="15" font-family="Cascadia Code, Consolas, monospace">control</text>
+  </g>
   <text x="60" y="105" fill="#F2F5F9" font-size="46" font-weight="bold">广告增量审计 · Uplift</text>
   <text x="60" y="158" fill="#8FB8D8" font-size="25">谁本来就会转化，谁因广告才转化（Criteo 随机实验）</text>
   <text x="60" y="215" fill="#E8A33D" font-size="19" font-family="Cascadia Code, Consolas, monospace">1398 万行 · ITT → S/T/DR-Learner → 覆盖策略模拟</text>

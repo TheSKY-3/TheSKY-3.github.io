@@ -57,7 +57,9 @@ node scripts/check-dist.mjs # 安全扫描（必须输出 OK 才能发布）
 | `--c-ice` | `#3E6B96` | 链接、辅助强调 |
 
 - 字体：系统字体栈（零外部请求）；数字用等宽 `--font-mono`。
+- **Hero 头像**：`site/public/images/avatar.jpg`（480×480 方形裁切，CSS 圆框），替换照片直接覆盖该文件即可。
 - 项目卡缩略图：banner 原生 **4:1**（1200×300），CSS `aspect-ratio: 4/1; object-fit: cover`，**零裁切**——banner 标题从 x=60 开始，改比例会切字。
+- banner 设计语言统一（深底 `#0B1220` + 琥珀强调），但**每项目一个专属图形母题**（Olist=评分阶梯、GA4=漏斗、Criteo=增量双曲线），避免"同一个模板只换字"的雷同感；banner 详细规范在 `docs/GITHUB-HANDBOOK.md`。
 - 深色 banner 在浅色主题上形成对比，与各 GitHub 仓库 README 的 banner 同一套视觉（同一文件）。
 - 结果图：PNG matplotlib 图，白底，caption 必须复述图中的关键数字（HR 只看图和 caption 也能懂）。
 
@@ -80,17 +82,17 @@ node scripts/check-dist.mjs # 安全扫描（必须输出 OK 才能发布）
 
 ## GitHub 展示体系（网站之外的全貌）
 
-| 仓库 | 状态 | 说明 |
-| --- | --- | --- |
-| `TheSKY-3/TheSKY-3.github.io` | 公开 | 本网站 |
-| `TheSKY-3` profile README | 公开 | GitHub 主页自我介绍 |
-| `olist-biz-analytics` | 私有 | 完整版在 `E:\eng_project\baxi\olist-biz-analytics\olist-biz-analytics`（含真实结果），推送仓库在 `D:\eng_project\olist-biz-analytics` |
-| `ga4-ecommerce-growth` | 私有 | `D:\eng_project\数据分析_产品经理\ga4_ecommerce_growth_project`；**转公开前必须审查 `docs/source_context/`** |
-| `criteo-uplift` | 私有 | 从 `D:\eng_project\Criteo\.worktrees\foundation` 抽出；**旧 Criteo 仓库历史含简历文件，永不推送** |
-| `fraud-tccr` | 私有 | 论文投稿包；**论文录用前保持私有**，tex 不单独公开 |
-| ECom Agent | 未上传 | 等用户吃透项目后再传（讲解 offer 已给出） |
+**详细手册在 `docs/GITHUB-HANDBOOK.md`**（仓库清单与位置、README 展示模式、banner 规范、转公开检查清单、红线）。速览：
 
-仓库 README 统一模式：banner + badges + 核心结论 TL;DR（真实数字）→ 为什么做（业务问题）→ mermaid 方法图 → 结果图表 → 复现步骤 → 证据边界。
+| 仓库 | 状态 | 一句话 |
+| --- | --- | --- |
+| 本仓库 | 公开 | 网站，自动部署 |
+| `TheSKY-3` profile | 公开 | GitHub 主页自我介绍 |
+| `olist-biz-analytics` | 私有 | 完整版在 E 盘 baxi 目录，改完同步推送 |
+| `ga4-ecommerce-growth` | 私有 | 转公开前审查 docs/source_context |
+| `criteo-uplift` | 私有 | 旧 Criteo 仓库历史含简历，永不推送 |
+| `fraud-tccr` | 私有 | 在投论文配套，录用前不动 |
+| ECom | 未上传 | 用户吃透项目后再传 |
 
 ## 当前状态与待办（2026-08-30）
 
