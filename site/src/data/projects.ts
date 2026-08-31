@@ -33,9 +33,9 @@ export const projects: Project[] = [
     tags: ["MySQL", "Python · Pandas", "Power BI", "Docker"],
     thumbnail: { src: "/images/banners/olist.svg", alt: "Olist 经营分析项目横幅" },
     figures: [
-      { src: "/images/olist/review_by_delay.png", alt: "履约时效与评分的关系", caption: "评分随履约延迟逐档下滑：准时 4.29 → 迟到 6 天以上 1.74" },
-      { src: "/images/olist/monthly_gmv.png", alt: "月度 GMV 趋势", caption: "月度 GMV 走势（2018-09 起为数据截断期）" },
-      { src: "/images/olist/top_categories_gmv.png", alt: "Top 类目 GMV", caption: "高贡献类目 GMV 排名" },
+      { src: "/images/olist/review_by_delay.png", alt: "履约时效与评分的关系", caption: "评分随履约延迟逐档下滑：准时 4.29（89,936 单）→ 迟到 6 天以上只剩 1.74（3,764 单）。业务上：差评治理的抓手在履约时效而非客服话术——「迟到 6 天+」只占约 4% 的订单却是低分主因，压降这一个桶就能拉动大盘评分" },
+      { src: "/images/olist/monthly_gmv.png", alt: "月度 GMV 趋势", caption: "月度 GMV 走势（2018-09 之后为数据截断期）。业务上：截断期不能当作「GMV 下滑」讲故事——任何趋势结论先核对数据窗口，这是分析里最基本的防误读动作" },
+      { src: "/images/olist/top_categories_gmv.png", alt: "Top 类目 GMV", caption: "高贡献类目 GMV 排名。业务上：确定资源投放的优先类目；与履约时效、评分视图联动，可进一步定位「高 GMV 但低口碑」、需要治理的类目" },
     ],
     sections: [
       {
@@ -78,9 +78,9 @@ export const projects: Project[] = [
     tags: ["BigQuery", "SQL", "漏斗分析", "Wilson 区间", "实验功效", "LaTeX 报告"],
     thumbnail: { src: "/images/banners/ga4.svg", alt: "GA4 增长分析项目横幅" },
     figures: [
-      { src: "/images/ga4/funnel_3_stage.png", alt: "全周期三阶段会话漏斗", caption: "会话级三阶段漏斗：77,020 次浏览商品会话中，13.98% 进入结账，6.05% 完成购买" },
-      { src: "/images/ga4/funnel_4_stage_stable.png", alt: "稳定窗口四阶段漏斗损失分解", caption: "稳定窗口四阶段损失分解：浏览→加购流失 78.1%、加购→结账流失 65.8%、结账→购买流失 47.2%——最大瓶颈在漏斗最前端" },
-      { src: "/images/ga4/device_conversion.png", alt: "分设备购买转化率与置信区间", caption: "分设备购买转化率（含 Wilson 95% 区间）：移动端 6.26%、桌面端 5.91%、平板端 5.88%——区间重叠，设备差异大部分属抽样噪声而非确定性问题" },
+      { src: "/images/ga4/funnel_3_stage.png", alt: "全周期三阶段会话漏斗", caption: "会话级三阶段漏斗：77,020 次浏览商品会话中，13.98% 进入结账，6.05% 完成购买。业务上：这是转化的基准线——每 100 次浏览只有约 6 次成交，任何优化都应先对着这条基线量化空间" },
+      { src: "/images/ga4/funnel_4_stage_stable.png", alt: "稳定窗口四阶段漏斗损失分解", caption: "稳定窗口四阶段损失分解：浏览→加购流失 78.1%、加购→结账流失 65.8%、结账→购买流失 47.2%。业务上：最大瓶颈在漏斗最前端——资源应优先投商品详情页与加购引导，而不是先动结账流程；这也是后续机会量化与实验设计的输入" },
+      { src: "/images/ga4/device_conversion.png", alt: "分设备购买转化率与置信区间", caption: "分设备购买转化率（Wilson 95% 区间）：移动端 6.26%、桌面端 5.91%、平板端 5.88%，区间明显重叠。业务上：三个差异都属抽样噪声——在把预算押到「移动端专项优化」之前先看置信区间，防止把噪声当洞察" },
     ],
     sections: [
       {
@@ -119,9 +119,9 @@ export const projects: Project[] = [
     tags: ["因果推断", "Uplift", "ITT", "AUUC / Qini", "Python"],
     thumbnail: { src: "/images/banners/criteo.svg", alt: "Criteo 因果增量分析项目横幅" },
     figures: [
-      { src: "/images/criteo/model_comparison.png", alt: "三个 Uplift 模型的验证集 AUUC 对比", caption: "三个 Uplift 模型的验证集 AUUC：固定配置下 S-Learner 在 visit 与 conversion 上均领先 T-Learner 与 DR-Learner" },
-      { src: "/images/criteo/decile_checks.png", alt: "预测分位的实际增量检验", caption: "分位检验：第 1 分位（预测增量最高人群）的实际处理-对照差距显著为正，其余分位接近 0——排序头部有真实信号" },
-      { src: "/images/criteo/policy_simulation.png", alt: "IPW 覆盖比例策略模拟", caption: "IPW 策略模拟：不同覆盖比例下的单位增量事件（visit 约 0.010、conversion 约 0.001），据此提出 visit 前 40%、conversion 前 50% 的候选覆盖规则" },
+      { src: "/images/criteo/model_comparison.png", alt: "三个 Uplift 模型的验证集 AUUC 对比", caption: "三个 Uplift 模型的验证集 AUUC：固定配置下 S-Learner 在 visit 与 conversion 上均领先 T-Learner 与 DR-Learner。业务上：离线选型给出「增量排序先用 S-Learner」的默认建议——但这是固定配置下的验证结果，不外推为所有业务的最优解" },
+      { src: "/images/criteo/decile_checks.png", alt: "预测分位的实际增量检验", caption: "分位检验：第 1 分位（预测增量最高人群）的实际处理-对照差距显著为正，其余分位接近 0。业务上：真实增量集中在排序头部——预算有限时只应触达 Top 分位，向中长尾扩量大概率是把自然转化误记成活动功劳" },
+      { src: "/images/criteo/policy_simulation.png", alt: "IPW 覆盖比例策略模拟", caption: "IPW 策略模拟：不同覆盖比例下的单位增量事件（visit 约 0.010、conversion 约 0.001）。业务上：把「触达多大比例」从拍脑袋变成可模拟的决策——visit 前 40%、conversion 前 50% 作为预注册候选，线上实验验证后才谈净价值与 ROI" },
     ],
     sections: [
       {
