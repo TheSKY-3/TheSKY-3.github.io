@@ -23,7 +23,7 @@ node scripts/check-dist.mjs # 安全扫描（必须输出 OK 才能发布）
 | 文件 | 内容 |
 | --- | --- |
 | `profile.ts` | 姓名、一句话定位、求职意向、**邮箱、GitHub 链接**、首屏 4 个统计数字 |
-| `experience.ts` | 实习经历（公司、职位、4 段经历） |
+| `experience.ts` | 实习经历：公司头部 + intro + 4 项统计 + 四段经历（**问题→动作▸→交付**结构 + 指标徽章 + 标签）；财务对账工作流图在 `site/public/images/experience/settlement-flow.svg` |
 | `projects.ts` | **四个项目**：卡片摘要、缩略图、详情页各小节、结果图表（figures）、证据边界声明 |
 | `research.ts` | 研究亮点（金融欺诈论文：TC-CCR 框架、成本降低数字） |
 | `skills.ts` | 技能分组标签 |

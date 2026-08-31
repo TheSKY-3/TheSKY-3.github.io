@@ -5,21 +5,74 @@ import { experience } from '../data/experience';
   <div class="container">
     <span class="eyebrow">实习经历 / EXPERIENCE</span>
     <h2>{experience.company}</h2>
-    <p class="role">{experience.role} · <span class="num">{experience.period}</span></p>
+    <p class="role">{experience.role} · {experience.dept} · <span class="num">{experience.period}</span></p>
+    <p class="intro">{experience.intro}</p>
+    <ul class="exp-stats">
+      {experience.stats.map((s) => (
+        <li><span class="stat-val">{s.value}</span><span class="stat-label">{s.label}</span></li>
+      ))}
+    </ul>
     <div class="exp-grid">
-      {experience.items.map((item) => (
-        <article class="card">
-          <h3>{item.title}</h3>
-          <p>{item.detail}</p>
+      {experience.highlights.map((h, i) => (
+        <article class="card exp-card">
+          <div class="exp-top">
+            <span class="exp-idx">0{i + 1}</span>
+            <h3>{h.title}</h3>
+            {h.metric && (
+              <span class="exp-metric">
+                <b class="num">{h.metric.value}</b>
+                <i>{h.metric.label}</i>
+              </span>
+            )}
+          </div>
+          <p class="line problem"><strong>问题</strong>{h.problem}</p>
+          <ul class="actions">
+            {h.actions.map((a) => <li>{a}</li>)}
+          </ul>
+          <p class="line outcome"><strong>交付</strong>{h.outcome}</p>
+          <div class="tagrow">{h.tags.map((t) => <span class="tag">{t}</span>)}</div>
         </article>
       ))}
     </div>
+    <figure class="workflow">
+      <img src="/images/experience/settlement-flow.svg" alt="财务对账工作流：三方资金结算链路" loading="lazy" />
+      <figcaption>财务对账工作流：8,242 条司机钱包对账记录梳理出的三方结算链路——21 项标准结算字段成为研发实现的对照标准。</figcaption>
+    </figure>
   </div>
 </section>
 <style>
-  .role { margin-top: calc(-1 * var(--space-1)); }
-  .exp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-2); margin-top: var(--space-3); }
-  .card h3 { font-size: 17px; }
-  .card p { font-size: 14.5px; margin: 0; }
-  @media (max-width: 640px) { .exp-grid { grid-template-columns: 1fr; } }
+  .role { margin-top: calc(-1 * var(--space-1)); color: var(--c-paper); font-weight: 500; }
+  .intro { max-width: 760px; margin: var(--space-1) 0 0; font-size: 15px; }
+  .exp-stats {
+    list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-2);
+    padding: 0; margin: var(--space-3) 0 0;
+  }
+  .exp-stats li {
+    background: var(--c-panel); border: 1px solid var(--c-line); border-radius: 10px;
+    padding: 10px 16px; display: flex; flex-direction: column; gap: 2px;
+    box-shadow: 0 1px 2px rgba(23, 35, 58, 0.04), 0 6px 16px rgba(23, 35, 58, 0.05);
+  }
+  .stat-val { font-family: var(--font-mono); font-size: clamp(17px, 2.2vw, 22px); color: var(--c-amber); }
+  .stat-label { font-size: 12.5px; color: var(--c-mist); }
+  .exp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-2); margin-top: var(--space-2); }
+  .exp-card { display: flex; flex-direction: column; gap: 10px; }
+  .exp-top { display: flex; align-items: baseline; gap: 10px; }
+  .exp-idx { font-family: var(--font-mono); font-size: 13px; color: var(--c-amber); }
+  .exp-top h3 { font-size: 17px; margin: 0; flex: 1; }
+  .exp-metric { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.25; }
+  .exp-metric b { font-family: var(--font-mono); font-size: 17px; }
+  .exp-metric i { font-style: normal; font-size: 11px; color: var(--c-mist); }
+  .line { font-size: 14px; margin: 0; }
+  .line strong { color: var(--c-ice); font-family: var(--font-mono); font-weight: 600; font-size: 12.5px; margin-right: 8px; }
+  .problem { color: var(--c-mist); }
+  .outcome { color: var(--c-paper); }
+  .actions { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+  .actions li { font-size: 14px; padding-left: 16px; position: relative; color: var(--c-mist); }
+  .actions li::before { content: "▸"; position: absolute; left: 0; color: var(--c-amber); font-size: 12px; }
+  .tagrow { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+  .workflow { margin: var(--space-3) 0 0; }
+  .workflow img { width: 100%; border: 1px solid var(--c-line); border-radius: 10px; background: #fff; }
+  .workflow figcaption { font-family: var(--font-mono); font-size: 13px; color: var(--c-ice); margin-top: var(--space-1); }
+  @media (max-width: 900px) { .exp-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .exp-stats { grid-template-columns: repeat(2, 1fr); } }
 </style>
