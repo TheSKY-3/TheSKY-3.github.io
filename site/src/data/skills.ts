@@ -22,7 +22,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     name: "AI 分析提效",
-    note: "实习中沉淀：60 期日报 + 近 20 份专题报告的自动化",
+    note: "实习中沉淀：60 期日报、近 20 份专题报告与月度对账流水线的自动化",
     items: ["WorkBuddy", "Codex", "AI Agent 工作流", "Skill 固化与质量校验"],
   },
   {

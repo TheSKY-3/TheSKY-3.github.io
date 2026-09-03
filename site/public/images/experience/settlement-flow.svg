@@ -1,4 +1,4 @@
-<svg width="1240" height="300" viewBox="0 0 1240 300" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Microsoft YaHei, PingFang SC, sans-serif">
+<svg width="1240" height="340" viewBox="0 0 1240 340" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Microsoft YaHei, PingFang SC, sans-serif">
   <defs>
     <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#7C97B4"/>
@@ -52,7 +52,11 @@
   <line x1="1066" y1="124" x2="1092" y2="124" stroke="#A0650A" stroke-width="2.2" marker-end="url(#arwAmber)"/>
 
   <line x1="36" y1="196" x2="1204" y2="196" stroke="#D8E0EA" stroke-width="1"/>
-  <text x="36" y="226" fill="#2E3A4C" font-size="14.5">为什么这么做：结算纠纷几乎都出在「边界」——跨日订单算哪天、中途取消抽不抽佣、回补金额谁承担。先把边界规则写清楚，再谈系统实现。</text>
-  <text x="36" y="252" fill="#5E7A99" font-size="14">业务价值：21 项标准结算字段成为研发实现的对照标准——对账从「逐笔人工核对」变成「字段口径可复核、审计可追溯」。</text>
-  <text x="36" y="278" fill="#8296AC" font-size="13">注：图中为口径梳理成果的抽象表达，不含真实金额与账户信息。</text>
+  <text x="36" y="224" fill="#2E3A4C" font-size="14.5">为什么这么做：结算纠纷几乎都出在「边界」——跨日订单算哪天、中途取消抽不抽佣、回补金额谁承担。先把边界规则写清楚，再谈系统实现。</text>
+
+  <rect x="36" y="240" width="1168" height="56" rx="10" fill="#FDF6EA" stroke="#A0650A" stroke-opacity="0.45" stroke-width="1.4"/>
+  <text x="56" y="264" fill="#A0650A" font-size="14.5" font-weight="600">已自动化 · ruqi-reconciliation Skill + 本地程序</text>
+  <text x="56" y="286" fill="#2E3A4C" font-size="13.5">输入双方结算 xlsx → 一条命令完成订单匹配、三列填充、分表重建与核算表核对；部门财务实测：单月对账约 1 天 → 约 10 分钟</text>
+
+  <text x="36" y="322" fill="#8296AC" font-size="13">注：图中为口径梳理成果的抽象表达，不含真实金额与账户信息；历史月份支持一键核验，重复键 / 缺字段自动中止、不写坏源文件。</text>
 </svg>
