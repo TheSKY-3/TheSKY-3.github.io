@@ -14,7 +14,7 @@ import { experience } from '../data/experience';
     </ul>
     <div class="exp-grid">
       {experience.highlights.map((h, i) => (
-        <article class="card exp-card">
+        <article class:list={["card", "exp-card", { "exp-card--centered": h.layout === "centered" }]}>
           <div class="exp-top">
             <span class="exp-idx">0{i + 1}</span>
             <h3>{h.title}</h3>
@@ -66,6 +66,9 @@ import { experience } from '../data/experience';
   .actions li { font-size: 14px; padding-left: 16px; position: relative; color: var(--c-mist); }
   .actions li::before { content: "▸"; position: absolute; left: 0; color: var(--c-amber); font-size: 12px; }
   .tagrow { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+  @media (min-width: 901px) {
+    .exp-card--centered { grid-column: 1 / -1; width: calc((100% - var(--space-2)) / 2); justify-self: center; }
+  }
   @media (max-width: 900px) { .exp-grid { grid-template-columns: 1fr; } }
   @media (max-width: 640px) { .exp-stats { grid-template-columns: repeat(2, 1fr); } }
 </style>
