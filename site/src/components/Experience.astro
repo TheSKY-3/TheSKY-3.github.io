@@ -34,10 +34,6 @@ import { experience } from '../data/experience';
         </article>
       ))}
     </div>
-    <figure class="workflow">
-      <img src="/images/experience/settlement-flow.svg" alt="财务对账工作流：三方资金结算链路" loading="lazy" />
-      <figcaption>{experience.workflowCaption}</figcaption>
-    </figure>
   </div>
 </section>
 <style>
@@ -70,9 +66,6 @@ import { experience } from '../data/experience';
   .actions li { font-size: 14px; padding-left: 16px; position: relative; color: var(--c-mist); }
   .actions li::before { content: "▸"; position: absolute; left: 0; color: var(--c-amber); font-size: 12px; }
   .tagrow { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
-  .workflow { margin: var(--space-3) 0 0; }
-  .workflow img { width: 100%; border: 1px solid var(--c-line); border-radius: 10px; background: #fff; }
-  .workflow figcaption { font-family: var(--font-mono); font-size: 13px; color: var(--c-ice); margin-top: var(--space-1); }
   @media (max-width: 900px) { .exp-grid { grid-template-columns: 1fr; } }
   @media (max-width: 640px) { .exp-stats { grid-template-columns: repeat(2, 1fr); } }
 </style>
