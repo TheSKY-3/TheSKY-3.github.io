@@ -11,7 +11,7 @@
   <rect width="1240" height="300" rx="14" fill="#FFFFFF" stroke="#D8E0EA" stroke-width="1.2"/>
   <rect x="36" y="30" width="5" height="24" rx="2.5" fill="#A0650A"/>
   <text x="52" y="49" fill="#17233A" font-size="19" font-weight="600">财务对账工作流 · 司机 / 车企 / 平台 三方资金结算</text>
-  <text x="1204" y="47" text-anchor="end" fill="#8296AC" font-size="13.5" font-family="Cascadia Code, Consolas, monospace">基于 8,242 条司机钱包对账记录梳理</text>
+  <text x="1204" y="47" text-anchor="end" fill="#8296AC" font-size="13.5" font-family="Cascadia Code, Consolas, monospace">基于三方结算链路与字段口径梳理</text>
 
   <g>
     <rect x="36" y="92" width="146" height="64" rx="10" fill="#F6F8FB" stroke="#D8E0EA" stroke-width="1.4"/>
@@ -56,7 +56,7 @@
 
   <rect x="36" y="240" width="1168" height="56" rx="10" fill="#FDF6EA" stroke="#A0650A" stroke-opacity="0.45" stroke-width="1.4"/>
   <text x="56" y="264" fill="#A0650A" font-size="14.5" font-weight="600">已自动化 · ruqi-reconciliation Skill + 本地程序</text>
-  <text x="56" y="286" fill="#2E3A4C" font-size="13.5">输入双方结算 xlsx → 一条命令完成订单匹配、三列填充、分表重建与核算表核对；部门财务实测：单月对账约 1 天 → 约 10 分钟</text>
+  <text x="56" y="286" fill="#2E3A4C" font-size="13.5">输入双方结算 xlsx → 自动匹配、填列并生成或更新对账表；部门财务实测：单月对账约 1 天 → 约 10 分钟</text>
 
-  <text x="36" y="322" fill="#8296AC" font-size="13">注：图中为口径梳理成果的抽象表达，不含真实金额与账户信息；历史月份支持一键核验，重复键 / 缺字段自动中止、不写坏源文件。</text>
+  <text x="36" y="322" fill="#8296AC" font-size="13">注：图中为口径梳理成果的抽象表达，不含真实金额、匹配行数与账户信息；历史月份支持一键核验，重复键 / 缺字段自动中止、不写坏源文件。</text>
 </svg>
