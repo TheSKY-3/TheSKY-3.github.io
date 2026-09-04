@@ -10,6 +10,7 @@ import { research } from '../data/research';
       <h1>{research.title}</h1>
       <p class="subtitle">{research.subtitle}</p>
       <p class="num period">{research.period}</p>
+      <p class="detail-summary">{research.summary}</p>
       {research.sections.map((s) => (
         <section class="block">
           <h2>{s.heading}</h2>

@@ -10,6 +10,7 @@ const p = projects.find((x) => x.slug === 'ecom-review-agent')!;
       <span class="tag">{p.eyebrow}</span>
       <h1>{p.title}</h1>
       <p class="num period">{p.period}</p>
+      <p class="detail-summary">{p.summary}</p>
       {p.sections.map((s) => (
         <section class="block">
           <h2>{s.heading}</h2>
