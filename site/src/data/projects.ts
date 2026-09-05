@@ -39,6 +39,10 @@ export const projects: Project[] = [
     ],
     sections: [
       {
+        heading: "本人负责",
+        body: "负责数据落库、ETL 清洗、KPI 口径、分析视图和 Power BI 看板结构设计，并整理可复现的经营分析报告。",
+      },
+      {
         heading: "背景与目标",
         body: "基于 Kaggle 公开的 Olist 电商多表数据，按真实公司的数据链路完整跑通一遍：数据落库 → 数仓视图 → KPI 分析 → 看板呈现，形成可写入简历、可复现、可发布的经营分析作品集项目。",
       },
@@ -84,6 +88,10 @@ export const projects: Project[] = [
     ],
     sections: [
       {
+        heading: "本人负责",
+        body: "负责测量审计、漏斗口径冻结、分群诊断、机会量化、实验功效计算和上线监控方案设计。",
+      },
+      {
         heading: "背景与目标",
         body: "面向数据分析与增长岗位、还原真实工作流的作品集项目：不虚构增量，在真实公共数据（GA4 电商样本，2020.11-2021.01，约 429 万事件、27 万用户、36 万会话）上走完增长分析全流程——先审计测量质量，再用严格漏斗定位问题，量化机会后设计可上线的 A/B 实验与监控方案。",
       },
@@ -125,6 +133,10 @@ export const projects: Project[] = [
     ],
     sections: [
       {
+        heading: "本人负责",
+        body: "负责数据与处理变量审计、总体 ITT、响应预测基线、Uplift 比较、策略模拟，以及离线分析与线上验证边界的整理。",
+      },
+      {
         heading: "核心问题：一条可验证的决策链",
         body: "这个项目的价值不在“训练了三个 Uplift 模型”，而在于把一个容易被误写成预测问题的业务问题，拆成可验证的决策链：干预是否整体有效？→ 谁本来就会行动？→ 谁因干预额外行动？→ 资源有限时先验证哪一部分？→ 线上实验是否带来净价值？前四步的离线版本已完成，最后一步尚未开始。",
       },
@@ -156,7 +168,7 @@ export const projects: Project[] = [
     slug: "ecom-review-agent",
     eyebrow: "AI Product / Agent / Data Product",
     title: "ECom Review Intelligence Agent",
-    period: "2026 年 · 阶段性工程验证通过",
+    period: "2026 年 · 阶段性工程验证完成，整体用户验证仍未完成",
     summary:
       "面向 B 端电商运营的本地证据决策原型：受约束 Agent + 本地 Verifier 将评论分析拆成可回查的证据卡、竞品信号和问题分诊工作流。",
     tags: ["LangGraph", "SQLite / FTS5", "Structured Output", "Verifier", "Agent 评测"],
@@ -168,6 +180,10 @@ export const projects: Project[] = [
       { src: "/images/ecom/workbench-triage.png", alt: "问题分诊工作流实测截图", caption: "问题分诊实测（受控别名 A / B / C · 制冰质量）：产出验证顺序，冲突证据显式标出并附责任团队" },
     ],
     sections: [
+      {
+        heading: "本人负责",
+        body: "负责业务问题拆解、证据合同与数据边界设计、受约束 Agent 与本地 Verifier 工作流，以及阶段性评测和工作台验证。",
+      },
       {
         heading: "业务问题：运营的判断为什么难",
         body: "品牌方或跨境团队的类目运营每天面对海量评论。要回答「噪音是不是真问题」「跟竞品比质量谁占优」「先核查哪个投诉」，得跨多页评论拼证据。Excel 能数星级，聊天模型能给流畅答案——但两者都说不清「这个结论基于哪条证据、能不能回查」。项目把主问题定为：把评论整理成可复核的证据，而不是替运营下结论。",
