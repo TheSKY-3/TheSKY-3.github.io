@@ -21,8 +21,8 @@ export const skillGroups: SkillGroup[] = [
     items: ["Power BI 看板", "DAX 指标口径", "Excel 函数与透视表"],
   },
   {
-    name: "AI 工具选型",
-    note: "按出错代价选工具：日报 / PPT / 数据看板 / 专题报告交给智能体生成；对账、抽佣这类会动到资金和源数据的，用 Codex 写成可校验、可中止的确定性程序。",
+    name: "AI 工具与应用",
+    note: "用智能体完成日报、PPT、数据看板与专题报告；涉及资金结算和源数据的流程，用 Codex 写成可校验、可复现的本地程序。",
     items: ["WorkBuddy", "Codex", "ZCode", "Qoder"],
   },
   {
