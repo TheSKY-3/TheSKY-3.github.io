@@ -87,7 +87,10 @@ main section[id] { scroll-margin-top: calc(56px + var(--space-1)); }
    元素保持默认可见状态，因此无需 JS 兜底也不会有空白内容 */
 @supports (animation-timeline: view()) {
   .proj-grid .card, .exp-grid .card, .skill-grid .card {
-    animation: card-reveal linear both;
+    animation-name: card-reveal;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
     animation-timeline: view();
     animation-range: entry 0% entry 45%;
   }
