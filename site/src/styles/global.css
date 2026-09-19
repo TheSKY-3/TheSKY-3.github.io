@@ -79,3 +79,20 @@ article.section h2::before, .section > .container > h2::before {
 @media (max-width: 640px) {
   .section { padding: var(--space-5) 0; }
 }
+
+/* 锚点跳转不被 sticky 顶栏遮住 */
+main section[id] { scroll-margin-top: calc(56px + var(--space-1)); }
+
+/* 卡片滚入渐显：滚动驱动动画。不支持 animation-timeline 的浏览器整条规则失效，
+   元素保持默认可见状态，因此无需 JS 兜底也不会有空白内容 */
+@supports (animation-timeline: view()) {
+  .proj-grid .card, .exp-grid .card, .skill-grid .card {
+    animation: card-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 45%;
+  }
+  @keyframes card-reveal {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
+  }
+}

@@ -1,4 +1,4 @@
----
+﻿---
 import { profile, heroStats } from '../data/profile';
 ---
 <section class="hero" id="hero">
@@ -16,7 +16,8 @@ import { profile, heroStats } from '../data/profile';
       {profile.intents.map((t) => <span class="tag intent">{t}</span>)}
     </div>
     <div class="quick-links">
-      <a class="btn btn-primary" href={profile.github} target="_blank" rel="noopener noreferrer">GitHub 主页 ↗</a>
+      <a class="btn btn-primary" href="/resume-wubogao.pdf" download>下载简历 ↓</a>
+      <a class="btn" href={profile.github} target="_blank" rel="noopener noreferrer">GitHub 主页 ↗</a>
       <a class="btn" href={`mailto:${profile.email}`}>邮件联系</a>
     </div>
     <ul class="stats">

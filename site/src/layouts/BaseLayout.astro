@@ -3,6 +3,8 @@ import '../styles/global.css';
 
 interface Props { title: string; description: string; }
 const { title, description } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL('/images/og-card.svg', Astro.site).href;
 const nav = [
   ["项目", "/#projects"], ["实习", "/#experience"], ["研究", "/#research"],
   ["技能", "/#skills"], ["联系", "/#contact"],
@@ -13,7 +15,22 @@ const nav = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#F6F8FB" />
+    <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="吴柏高 · 个人作品集" />
+    <meta property="og:locale" content="zh_CN" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     <title>{title}</title>
   </head>
   <body>
@@ -35,6 +52,39 @@ const nav = [
     </footer>
   </body>
 </html>
+<script>
+  (() => {
+    const HEADER = 56;
+    const anchors = [].slice.call(document.querySelectorAll('header nav a[href^="/#"]'));
+    const targets = anchors
+      .map((a) => document.getElementById(a.getAttribute('href').slice(2)))
+      .filter(Boolean);
+    if (!targets.length) return;
+
+    const setActive = (id) => {
+      anchors.forEach((a) => a.classList.toggle('active', a.getAttribute('href').slice(2) === id));
+    };
+
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      let current = targets[0].id;
+      for (const el of targets) {
+        if (el.getBoundingClientRect().top <= HEADER + 24) current = el.id;
+        else break;
+      }
+      if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4) {
+        current = targets[targets.length - 1].id;
+      }
+      setActive(current);
+    };
+
+    addEventListener('scroll', () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    update();
+  })();
+</script>
 <style>
   .site-header {
     position: sticky; top: 0; z-index: 10;
@@ -45,11 +95,19 @@ const nav = [
   .brand { color: var(--c-paper); font-weight: 600; }
   .brand-dot { color: var(--c-amber); }
   nav { display: flex; gap: var(--space-3); }
-  nav a { font-size: 14px; color: var(--c-mist); }
+  nav a { position: relative; font-size: 14px; color: var(--c-mist); transition: color .15s; }
+  nav a::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px;
+    border-radius: 1px; background: var(--c-amber);
+    transform: scaleX(0); transform-origin: left; transition: transform .22s ease;
+  }
   nav a:hover { color: var(--c-amber); }
+  nav a.active { color: var(--c-paper); }
+  nav a.active::after { transform: scaleX(1); }
   .site-footer { border-top: 1px solid var(--c-line); padding: var(--space-4) 0; color: var(--c-mist); font-size: 14px; }
   @media (max-width: 640px) {
     nav { gap: var(--space-2); }
     nav a { font-size: 13px; }
+    nav a::after { bottom: -4px; }
   }
 </style>

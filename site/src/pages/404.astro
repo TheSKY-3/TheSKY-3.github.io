@@ -1,0 +1,38 @@
+﻿---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="404 · 页面未找到 · 吴柏高" description="你访问的页面不存在，可能是链接有误或内容已更新。">
+  <section class="section error-page">
+    <div class="container">
+      <span class="eyebrow">ERROR 404</span>
+      <h1>这个页面走丢了</h1>
+      <p class="hint">你访问的页面不存在或已被移动。<br/>可能是链接有误，也可能项目已更新路径。</p>
+      <div class="actions">
+        <a class="btn" href="/">← 返回首页</a>
+        <a class="btn" href="/#projects">查看项目 →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .error-page {
+    min-height: 60vh;
+    display: flex; align-items: center;
+    background:
+      radial-gradient(900px 300px at 18% -8%, rgba(160, 101, 10, 0.05), transparent 62%),
+      radial-gradient(820px 280px at 85% -12%, rgba(62, 107, 150, 0.08), transparent 62%),
+      radial-gradient(rgba(23, 35, 58, 0.04) 1px, transparent 1.6px);
+    background-size: auto, auto, 26px 26px;
+    border-top: none;
+  }
+  .error-page .container { text-align: center; max-width: 560px; }
+  .error-page h1 { font-size: clamp(32px, 6vw, 52px); margin: var(--space-2) 0; }
+  .hint { color: var(--c-mist); font-size: 16px; line-height: 1.8; margin-bottom: var(--space-4); }
+  .actions { display: flex; gap: var(--space-2); justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 10px 24px; border: 1px solid var(--c-line);
+    border-radius: 8px; background: var(--c-panel); color: var(--c-paper);
+    font-size: 15px; font-weight: 500; transition: border-color .15s, color .15s;
+  }
+  .btn:hover { border-color: var(--c-amber); color: var(--c-amber); }
+</style>

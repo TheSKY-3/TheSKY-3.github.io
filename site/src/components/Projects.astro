@@ -1,4 +1,4 @@
----
+﻿---
 import { projects } from '../data/projects';
 ---
 <section class="section" id="projects">
@@ -15,6 +15,7 @@ import { projects } from '../data/projects';
           <h3>{p.title}</h3>
           <p class="period num">{p.period}</p>
           <p class="summary">{p.summary}</p>
+          <div class="card-tags">{p.tags.slice(0, 4).map((t) => <span class="tag">{t}</span>)}</div>
           <span class="more">阅读详情 →</span>
         </a>
       ))}
@@ -36,7 +37,9 @@ import { projects } from '../data/projects';
   .proj-card h3 { font-size: 18px; margin: 0; }
   .period { font-size: 13px; margin: 0; }
   .summary { font-size: 14.5px; flex: 1; margin: 0; }
-  .more { font-family: var(--font-mono); font-size: 13px; color: var(--c-ice); }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--space-1); }
+  .card-tags .tag { font-size: 11px; padding: 2px 6px; }
+  .more { font-family: var(--font-mono); font-size: 13px; color: var(--c-ice); margin-top: var(--space-1); }
   .proj-card:hover .more { color: var(--c-amber); }
   @media (max-width: 900px) { .proj-grid { grid-template-columns: 1fr; } }
 </style>
