@@ -26,10 +26,10 @@ export const projects: Project[] = [
   {
     slug: "olist",
     eyebrow: "数据分析 / BI",
-    title: "Olist 巴西电商经营分析",
+    title: "电商履约与口碑经营分析",
     period: "2024.07 - 2024.09",
     summary:
-      "把 9 张业务表变成经营决策看板：MySQL + Python 沉淀 KPI 指标体系，用 9.6 万笔订单证明「履约延迟是口碑的头号杀手」——准时送达评分 4.29，迟到 6 天以上只剩 1.74。",
+      "把巴西 Olist 公开数据集的 9 张业务表变成经营决策看板：MySQL + Python 沉淀 KPI 指标体系，用 9.6 万笔订单证明「履约延迟是口碑的头号杀手」——准时送达评分 4.29，迟到 6 天以上只剩 1.74。",
     tags: ["MySQL", "Python · Pandas", "Power BI", "Docker"],
     thumbnail: { src: "/images/banners/olist.svg", alt: "Olist 经营分析项目横幅" },
     figures: [
@@ -75,7 +75,7 @@ export const projects: Project[] = [
   {
     slug: "ga4-growth",
     eyebrow: "增长分析 / 实验设计",
-    title: "GA4 电商转化漏斗诊断与增长实验设计",
+    title: "电商转化漏斗诊断与增长实验设计",
     period: "2026.08 · 已完成，全链路可复现",
     summary:
       "基于 BigQuery GA4 公共电商数据（429 万事件、27 万用户），完成「测量审计 → 严格漏斗 → 问题定位 → 机会量化 → 实验功效 → 监控设计」的增长分析闭环，17 条 SQL 全部可审计。",
@@ -120,12 +120,12 @@ export const projects: Project[] = [
   {
     slug: "criteo-uplift",
     eyebrow: "因果推断 / Uplift / 数据策略",
-    title: "Criteo 因果增量分析",
+    title: "营销增量识别与投放策略模拟",
     period: "2026 年 · 离线分析完成，线上验证未开始",
     summary:
       "基于 Criteo 去偏公开随机实验数据（约 1398 万行），完成 ITT → 响应预测 → S/T/DR-Learner Uplift 比较 → AUUC/Qini 评估 → 覆盖策略模拟的完整分析链。",
     tags: ["因果推断", "Uplift", "ITT", "AUUC / Qini", "Python"],
-    thumbnail: { src: "/images/banners/criteo.svg", alt: "Criteo 因果增量分析项目横幅" },
+    thumbnail: { src: "/images/banners/criteo.svg", alt: "营销增量识别与投放策略模拟项目横幅" },
     figures: [
       { src: "/images/criteo/model_comparison.png", alt: "三个 Uplift 模型的验证集 AUUC 对比", caption: "三个 Uplift 模型的验证集 AUUC：固定配置下 S-Learner 在 visit 与 conversion 上均领先 T-Learner 与 DR-Learner。业务上：离线选型给出「增量排序先用 S-Learner」的默认建议——但这是固定配置下的验证结果，不外推为所有业务的最优解" },
       { src: "/images/criteo/decile_checks.png", alt: "预测分位的实际增量检验", caption: "分位检验：第 1 分位（预测增量最高人群）的实际处理-对照差距显著为正，其余分位接近 0。业务上：真实增量集中在排序头部——预算有限时只应触达 Top 分位，向中长尾扩量大概率是把自然转化误记成活动功劳" },
@@ -166,8 +166,8 @@ export const projects: Project[] = [
   },
   {
     slug: "ecom-review-agent",
-    eyebrow: "AI Product / Agent / Data Product",
-    title: "ECom Review Intelligence Agent",
+    eyebrow: "AI 产品 / Agent / 数据产品",
+    title: "电商评论智能诊断 Agent",
     period: "2026 年 · 阶段性工程验证完成，整体用户验证仍未完成",
     summary:
       "面向 B 端电商运营的本地证据决策原型：受约束 Agent + 本地 Verifier 将评论分析拆成可回查的证据卡、竞品信号和问题分诊工作流。",

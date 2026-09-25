@@ -9,7 +9,7 @@
     <text x="820" y="70" fill="#5E7A99" font-size="15" font-family="Cascadia Code, Consolas, monospace">准时 4.29</text>
     <text x="1028" y="70" fill="#E8A33D" font-size="15" font-family="Cascadia Code, Consolas, monospace">迟到 6 天+ 1.74</text>
   </g>
-  <text x="60" y="105" fill="#F2F5F9" font-size="46" font-weight="bold">Olist 电商经营分析</text>
+  <text x="60" y="105" fill="#F2F5F9" font-size="46" font-weight="bold">电商履约与口碑经营分析</text>
   <text x="60" y="158" fill="#8FB8D8" font-size="25">9 张业务表 → 一套经营决策看板</text>
   <text x="60" y="215" fill="#E8A33D" font-size="19" font-family="Cascadia Code, Consolas, monospace">准时送达评分 4.29 · 迟到 6 天+ 评分 1.74</text>
   <text x="60" y="252" fill="#C6CFDC" font-size="17" font-family="Cascadia Code, Consolas, monospace">MySQL · Python · Power BI · Docker</text>
