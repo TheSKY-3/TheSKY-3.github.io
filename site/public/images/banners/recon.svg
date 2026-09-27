@@ -1,0 +1,27 @@
+<svg width="1200" height="300" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="1200" height="300" fill="#0B1220"/>
+  <g>
+    <rect x="830" y="58" width="150" height="118" rx="8" fill="#131F35" stroke="#2A3D5C" stroke-width="1.5"/>
+    <text x="844" y="80" fill="#8FB8D8" font-size="12" font-family="Cascadia Code, Consolas, monospace">平台账单</text>
+    <text x="844" y="104" fill="#C6CFDC" font-size="11" font-family="Cascadia Code, Consolas, monospace">订单A 佣金 12.40</text>
+    <text x="844" y="124" fill="#C6CFDC" font-size="11" font-family="Cascadia Code, Consolas, monospace">订单B 佣金 8.75</text>
+    <text x="844" y="144" fill="#C6CFDC" font-size="11" font-family="Cascadia Code, Consolas, monospace">订单C 佣金 4.20</text>
+    <text x="844" y="164" fill="#C6CFDC" font-size="11" font-family="Cascadia Code, Consolas, monospace">订单D 佣金 3.90</text>
+    <rect x="1020" y="58" width="150" height="118" rx="8" fill="#131F35" stroke="#2A3D5C" stroke-width="1.5"/>
+    <text x="1034" y="80" fill="#8FB8D8" font-size="12" font-family="Cascadia Code, Consolas, monospace">业务订单</text>
+    <text x="1034" y="104" fill="#C6CFDC" font-size="11" font-family="Cascadia Code, Consolas, monospace">订单A 应收 12.40</text>
+    <text x="1034" y="124" fill="#C6CFDC" font-size="11" font-family="Cascadia Code, Consolas, monospace">订单B 应收 8.75</text>
+    <text x="1034" y="144" fill="#C6CFDC" font-size="11" font-family="Cascadia Code, Consolas, monospace">订单C 应收 5.10</text>
+    <text x="1034" y="164" fill="#C6CFDC" font-size="11" font-family="Cascadia Code, Consolas, monospace">订单D ——</text>
+    <text x="996" y="104" fill="#7FC9A0" font-size="14" font-family="Cascadia Code, Consolas, monospace">✓</text>
+    <text x="996" y="124" fill="#7FC9A0" font-size="14" font-family="Cascadia Code, Consolas, monospace">✓</text>
+    <text x="995" y="144" fill="#E8A33D" font-size="13" font-family="Cascadia Code, Consolas, monospace">⚑</text>
+    <text x="996" y="164" fill="#E0967F" font-size="13" font-family="Cascadia Code, Consolas, monospace">!</text>
+    <rect x="830" y="190" width="340" height="40" rx="8" fill="#131F35" stroke="#2A3D5C" stroke-width="1.5"/>
+    <text x="848" y="216" fill="#7FC9A0" font-size="14" font-family="Cascadia Code, Consolas, monospace">召回 100% · 真误报 0 · 跨域 99.67%</text>
+  </g>
+  <text x="60" y="105" fill="#F2F5F9" font-size="46" font-weight="bold">电商结算对账 Agent</text>
+  <text x="60" y="158" fill="#8FB8D8" font-size="25">平台账单 × 业务订单 × 支付流水，确定性核对 + 差异归因</text>
+  <text x="60" y="215" fill="#E8A33D" font-size="19" font-family="Cascadia Code, Consolas, monospace">确定性引擎 2.5s / 9.9 万单 · 1,750 颗标准答案雷全命中</text>
+  <text x="60" y="252" fill="#C6CFDC" font-size="17" font-family="Cascadia Code, Consolas, monospace">SQLite · 确定性引擎 · 受约束 Agent · 合成评测 · FastAPI</text>
+</svg>
