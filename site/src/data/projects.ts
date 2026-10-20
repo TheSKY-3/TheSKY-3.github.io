@@ -75,7 +75,7 @@ export const projects: Project[] = [
   {
     slug: "ga4-growth",
     eyebrow: "增长分析 / 实验设计",
-    title: "电商转化漏斗诊断与增长实验设计",
+    title: "GA4 电商转化漏斗诊断与增长实验设计",
     period: "2026.08 · 已完成，全链路可复现",
     summary:
       "基于 BigQuery GA4 公共电商数据（429 万事件、27 万用户），完成「测量审计 → 严格漏斗 → 问题定位 → 机会量化 → 实验功效 → 监控设计」的增长分析闭环，17 条 SQL 全部可审计。",
