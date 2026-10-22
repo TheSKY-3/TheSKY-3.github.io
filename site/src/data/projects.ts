@@ -17,6 +17,8 @@ export interface Project {
   summary: string;
   tags: string[];
   thumbnail?: { src: string; alt: string };
+  repo?: string;
+  download?: { label: string; href: string };
   sections: ProjectSection[];
   figures?: ProjectFigure[];
   boundary?: string;
@@ -168,16 +170,22 @@ export const projects: Project[] = [
     slug: "ecom-review-agent",
     eyebrow: "AI 产品 / Agent / 数据产品",
     title: "电商评论智能诊断 Agent",
-    period: "2026 年 · 阶段性工程验证完成，整体用户验证仍未完成",
+    period: "2026 年 · 阶段性工程验证完成；仓库与 Windows 版已开放，真人试用仍未进行",
     summary:
-      "面向 B 端电商运营的本地证据决策原型：受约束 Agent + 本地 Verifier 将评论分析拆成可回查的证据卡、竞品信号和问题分诊工作流。",
-    tags: ["LangGraph", "SQLite / FTS5", "Structured Output", "Verifier", "Agent 评测"],
+      "面向 B 端电商运营的本地证据决策原型：受约束 Agent + 本地 Verifier 把评论分析拆成可回查的证据卡、竞品信号和问题分诊工作流；可选的 AI 阅读步骤每点一次只读 5 条评论、调用 1 次模型，四条机器校验不过就整段丢弃。仓库自带 3 商品演示子集，Windows 单文件版双击即用。",
+    tags: ["LangGraph", "SQLite / FTS5", "Structured Output", "Verifier", "Agent 评测", "可选 AI 步骤", "访问者自带密钥"],
     thumbnail: { src: "/images/banners/ecom.svg", alt: "电商评论证据 Agent 横幅" },
+    repo: "https://github.com/TheSKY-3/ecom-review-intelligence",
+    download: {
+      label: "下载 Windows 版（40 MB 单文件）",
+      href: "https://github.com/TheSKY-3/ecom-review-intelligence/releases/latest",
+    },
     figures: [
       { src: "/images/ecom/architecture.svg", alt: "ECom 智能体系统架构图", caption: "系统架构：四层各解决一个不确定性——治理层冻结口径、证据层让代码而非模型掌握事实、智能层逐字段复核模型输出、业务层把能力变成三个可操作的工作流" },
       { src: "/images/ecom/workbench-diagnosis.png", alt: "SKU 诊断工作流实测截图", caption: "SKU 诊断实测（受控别名 A · 运行噪音）：返回已校验证据卡（支持 / 信息不足）与人工核查建议；评论原文默认私密，点开单卡才按需返回" },
       { src: "/images/ecom/workbench-comparison.png", alt: "竞品比较工作流实测截图", caption: "竞品比较实测（受控别名 A vs B · 制冰质量）：信号表只陈述证据方向，不替运营宣布谁更好" },
       { src: "/images/ecom/workbench-triage.png", alt: "问题分诊工作流实测截图", caption: "问题分诊实测（受控别名 A / B / C · 制冰质量）：产出验证顺序，冲突证据显式标出并附责任团队" },
+      { src: "/images/ecom/workbench-ai-panel.png", alt: "AI 深入分析面板实测截图", caption: "「AI 深入分析」实测（运行噪音，一次点击 = 5 条评论原文 + 1 次模型调用）：产出「能说什么 / 具体的点 / 不能说什么」，每个具体点带证据编号；结论里明确写「该样本无法确定分贝值、测量条件，也无法说明差异原因或各占比例」" },
     ],
     sections: [
       {
@@ -195,6 +203,26 @@ export const projects: Project[] = [
       {
         heading: "三大工作流（本地受控验证）",
         body: "界面上商品以受控别名出现——这是刻意设计：运行时不泄露内部商品标识，评论原文默认私密、点开单卡才按需返回。三个工作流分别输出已校验证据卡、竞品信号表和问题验证顺序；冲突证据会显式标出并附责任团队。",
+      },
+      {
+        heading: "可选的一步：让模型读原文，但不能判「够不够」",
+        body: "证据卡上的「AI 深入分析」是整条链路里唯一会把评论原文发给模型的步骤，默认关闭、不联网、不花钱。点一次 = 读取该维度抽样到的 5 条评论原文 + 调用 1 次模型，产出四段：能说什么、具体的点、读作无关的评论、不能说什么；结果按（运行令牌，证据卡）缓存，再点不重复花钱，失败不缓存、可以再点一次。",
+      },
+      {
+        heading: "为什么这段 AI 输出可核查：四道机器校验",
+        body: "不是提示词要求，是代码判决——① 每条评论都必须有自己的判定，模型不能偷偷删掉负面评论；② 判为相关的评论必须至少被引用一次；③ 被引用的评论必须判为相关，不能拿无关评论凑数；④ 每句引文必须是它自己那条评论的逐字子串。任一条不过，整段作废，页面只显示原因码，不展示半成品。实测 15 次真实调用 14 次可用，唯一失败是「判为相关却没引用」，重试即通过；另有一次稳定失败（模型把编号 E1–E5 改写成 R1–R5）定位后修在提示词层，同一张卡修复后 6/6 通过。",
+      },
+      {
+        heading: "访问者自带密钥：部署方不花一分钱",
+        body: "部署方可以不配置任何密钥上线：页面请访问者填自己的 key，只存当前标签页的 sessionStorage、关闭即清；每次分析以请求头传给服务端，只为那一次调用构造客户端，不落盘、不进日志与 trace、不回显；服务端另加同 IP 每 10 分钟 10 次调用的限速。这意味着公开演示时，模型成本由访问者自己的 key 承担。",
+      },
+      {
+        heading: "被实验否掉的方案：让模型判断证据够不够",
+        body: "最初设想让模型回答「这批证据够不够支撑结论」，两轮人工标注把它否掉了：手写计数规则跨两批标注从 0.65 掉到 0.35；模型探针 0.55 / 0.80，宽松提示词有 37.5% 假阳性——换批次就崩，学到的不是判断而是批次特征。结论：模型只做「把评论读成结构」，够不够仍由确定性分档决定。这个负结果留在仓库的决策记录里，没有从文档里删掉。",
+      },
+      {
+        heading: "下载即跑：从仓库到双击打开",
+        body: "仓库自带一份固定的 3 商品演示子集（11,958 条评论，10.9 MB），克隆后 docker compose up 即可运行；Windows 用户可以直接下载 40 MB 单文件桌面版，内置同一份子集，不需要 Python、不需要命令行、不需要网络、不需要密钥。桌面版的 checkpoint 与人工核对记录写在用户目录，不污染安装目录。",
       },
       {
         heading: "为什么可信：三道防编造设计 + 一道评测门",
@@ -218,7 +246,7 @@ export const projects: Project[] = [
       },
     ],
     boundary:
-      "本文案遵守项目证据边界：表述为「本地证据决策原型 / 阶段性工程验证」，不声称已上线、已节省工时或已改善业务指标。",
+      "本文案遵守项目证据边界：表述为「本地证据决策原型 / 阶段性工程验证」，不声称已上线、已节省工时或已改善业务指标；仓库与 Windows 版已开放，但真人试用（3 次）尚未进行，随仓库发布的是固定 3 商品演示子集，不是数据分发通道。",
   },
   {
     slug: "settlement-recon",

@@ -28,6 +28,12 @@ const p = projects.find((x) => x.slug === 'ecom-review-agent')!;
           ))}
         </section>
       )}
+      {(p.repo || p.download) && (
+        <div class="project-links">
+          {p.repo && <a class="project-link" href={p.repo}>查看代码 →</a>}
+          {p.download && <a class="project-link" href={p.download.href}>{p.download.label}</a>}
+        </div>
+      )}
       <div class="tags">{p.tags.map((t) => <span class="tag">{t}</span>)}</div>
       {p.boundary && <p class="boundary">{p.boundary}</p>}
     </div>
@@ -39,6 +45,18 @@ const p = projects.find((x) => x.slug === 'ecom-review-agent')!;
   .period { margin-top: 0; }
   .block { margin-top: var(--space-4); max-width: 760px; }
   .block h2 { font-size: 20px; }
+  .project-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: var(--space-4); }
+  .project-link {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    padding: 8px 14px;
+    border: 1px solid var(--c-line);
+    border-radius: 999px;
+    color: var(--c-paper);
+    text-decoration: none;
+    background: var(--c-panel);
+  }
+  .project-link:hover { border-color: var(--c-amber); color: var(--c-amber); }
   .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--space-4); }
   .fig { margin: var(--space-3) 0; }
   .fig img { max-width: 100%; border: 1px solid var(--c-line); border-radius: 10px; background: #fff; }
