@@ -95,13 +95,15 @@ node scripts/check-dist.mjs # 安全扫描（必须输出 OK 才能发布）
 | `ga4-ecommerce-growth` | 私有 | 转公开前审查 docs/source_context |
 | `criteo-uplift` | 私有 | 旧 Criteo 仓库历史含简历，永不推送 |
 | `fraud-tccr` | 私有 | 在投论文配套，录用前不动 |
-| ECom | 未上传 | 用户吃透项目后再传 |
+| `ecom-review-intelligence` | 公开 | 评论证据 Agent：仓库自带 3 商品演示子集，Windows 单文件版可下载 |
 
 ## 当前状态与待办（2026-08-30）
 
 - ✅ 网站上线并自动部署；四个项目卡横幅缩略图；GA4/Criteo 详情页结果图表；Hero/联系区/页脚 GitHub 入口；导航锚点修复。
 - ⏳ 四个项目仓库暂为私有（用户要求）；用户满意后逐个转公开，转公开后给网站详情页加「查看代码 →」链接（`projects.ts` 加 `repo` 字段 + 详情页渲染）。
-- ⏳ ECom 卡片刻意无缩略图（项目仍在开发），吃透后再补图与 README。
+- ✅ ECom 已补齐（2026-10-22）：仓库公开、Release 带 Windows 单文件版、详情页新增「可选 AI 步骤 / 四道机器校验 / 访问者自带密钥 / 下载即跑 / 被实验否掉的方案」五节与 AI 面板截图。
+- ✅ 详情页支持 `repo` 与 `download` 字段（`projects.ts`），声明即渲染为「查看代码 →」「下载 Windows 版」两个按钮；ECom 是第一个用上的。
+- ⏳ ECom 的真人试用（3 次）仍未进行，边界文案里必须继续写「阶段性工程验证」。
 - ⏳ 论文录用后：research 板块可加「已录用」标注，fraud-tccr 转公开。
 
 ## 技术栈
