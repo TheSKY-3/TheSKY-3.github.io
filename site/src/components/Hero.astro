@@ -16,7 +16,8 @@ import { profile, heroStats } from '../data/profile';
       {profile.intents.map((t) => <span class="tag intent">{t}</span>)}
     </div>
     <div class="quick-links">
-      <a class="btn btn-primary" href="/resume-wubogao.pdf" download>下载简历 ↓</a>
+      <a class="btn btn-primary" href={profile.resumes[0].href} download>{profile.resumes[0].label} ↓</a>
+      <a class="btn" href={profile.resumes[1].href} download>{profile.resumes[1].label} ↓</a>
       <a class="btn" href={profile.github} target="_blank" rel="noopener noreferrer">GitHub 主页 ↗</a>
       <a class="btn" href={`mailto:${profile.email}`}>邮件联系</a>
     </div>
@@ -25,12 +26,29 @@ import { profile, heroStats } from '../data/profile';
         <li><span class="stat-num">{s.value}</span><span class="stat-label">{s.label}</span></li>
       ))}
     </ul>
-    <svg class="cost-curve" viewBox="0 0 1080 120" aria-hidden="true">
-      <path d="M0 96 C 300 92, 520 74, 720 46 S 1000 14, 1080 10" stroke="var(--c-line)" stroke-width="2" fill="none"/>
-      <circle cx="720" cy="46" r="5" fill="var(--c-amber)"/>
-      <text x="738" y="42" fill="var(--c-mist)" font-size="14" font-family="var(--font-mono)">10% 复核容量 · 成本 ↓40.37%–48.60%</text>
+    <svg class="hit-bars" viewBox="0 0 1080 150" aria-hidden="true" role="img">
+      <!-- 出处页命中 hit@5：金标口径修正后（基线 34 → 混合检索+年份 56 → 语境增强 76 → 融合调优 86） -->
+      <g font-family="var(--font-mono)">
+        <rect x="90" y="82" width="110" height="34" rx="4" fill="var(--c-ice)" opacity="0.75"/>
+        <rect x="300" y="57" width="110" height="59" rx="4" fill="var(--c-ice)" opacity="0.85"/>
+        <rect x="510" y="36" width="110" height="80" rx="4" fill="var(--c-ice)"/>
+        <rect x="720" y="26" width="110" height="90" rx="4" fill="var(--c-amber)"/>
+        <line x1="60" y1="116" x2="880" y2="116" stroke="var(--c-line)" stroke-width="1.5"/>
+        <text x="145" y="72" text-anchor="middle" font-size="16" fill="var(--c-mist)">34%</text>
+        <text x="355" y="47" text-anchor="middle" font-size="16" fill="var(--c-mist)">56%</text>
+        <text x="565" y="26" text-anchor="middle" font-size="16" fill="var(--c-mist)">76%</text>
+        <text x="775" y="16" text-anchor="middle" font-size="18" font-weight="700" fill="var(--c-amber)">86%</text>
+        <text x="145" y="136" text-anchor="middle" font-size="13" fill="var(--c-ice)">纯向量基线</text>
+        <text x="355" y="136" text-anchor="middle" font-size="13" fill="var(--c-ice)">BM25+向量 · 年份过滤</text>
+        <text x="565" y="136" text-anchor="middle" font-size="13" fill="var(--c-ice)">语境增强索引</text>
+        <text x="775" y="136" text-anchor="middle" font-size="13" fill="var(--c-amber)">+ min-max 融合</text>
+        <text x="920" y="60" font-size="13" fill="var(--c-mist)">eval-gate CI：</text>
+        <text x="920" y="82" font-size="13" fill="var(--c-mist)">hit@5 &lt; 84%</text>
+        <text x="920" y="104" font-size="13" fill="var(--c-mist)">直接失败亮红灯</text>
+      </g>
     </svg>
-    <p class="hero-caption">来自在研课题：时间一致容量约束下的金融欺诈报警部署策略</p>
+    <p class="hero-caption">来自财报 RAG 问答系统：让投资者问一句，就拿到能核对页码的答案——这个数字就是证据。</p>
+    <p class="hero-caption-note">50 题冻结题库、程序判分；金标口径修正后，86% 为同题扫参结果、非留出集。</p>
   </div>
 </section>
 <style>
@@ -65,8 +83,9 @@ import { profile, heroStats } from '../data/profile';
   .stats li { background: var(--c-panel); border: 1px solid var(--c-line); border-radius: 10px; padding: var(--space-2); display: flex; flex-direction: column; gap: 4px; }
   .stat-num { font-family: var(--font-mono); font-size: clamp(20px, 3vw, 28px); color: var(--c-amber); }
   .stat-label { font-size: 13px; color: var(--c-mist); }
-  .cost-curve { width: 100%; height: auto; display: block; }
+  .cost-curve, .hit-bars { width: 100%; height: auto; display: block; }
   .hero-caption { font-size: 13px; color: var(--c-ice); margin-top: var(--space-1); }
+  .hero-caption-note { font-size: 12px; color: var(--c-mist); opacity: 0.75; margin-top: 4px; }
   @media (max-width: 640px) {
     .stats { grid-template-columns: repeat(2, 1fr); }
     .hero-head { flex-direction: column-reverse; }

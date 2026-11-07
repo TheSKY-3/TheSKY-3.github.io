@@ -14,8 +14,9 @@ export const education = [
 ];
 
 export const honors = [
+  "2026 年学院奖学金",
   "2023 全国大学生数学建模竞赛 省三等奖",
   "美国大学生数学建模竞赛 H 奖",
-  "CET-4 / CET-6",
-  "优秀先进个人",
+  "校级先进个人",
+  "CET-6",
 ];

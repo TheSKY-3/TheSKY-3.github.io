@@ -1,47 +1,27 @@
-﻿---
+---
 import { projects } from '../data/projects';
+import ProjectCard from './ProjectCard.astro';
+const agentProjects = projects.filter((p) => p.track === 'agent');
+const dataProjects = projects.filter((p) => p.track !== 'agent');
 ---
 <section class="section" id="projects">
   <div class="container">
     <span class="eyebrow">项目作品集 / PROJECTS</span>
-    <h2>五个可以深入追问的项目</h2>
+    <h2>六个可验证的项目</h2>
+    <p class="lead">代码公开、评测集冻结、证据边界写明——每个结论都能回查，每个数字都能复算。</p>
+    <h3 class="group-label">Agent / LLM 应用</h3>
     <div class="proj-grid">
-      {projects.map((p) => (
-        <a class:list={["card", "proj-card", { wide: p.slug === "settlement-recon" }]} href={`/projects/${p.slug}/`}>
-          {p.thumbnail && (
-            <img class="thumb" src={p.thumbnail.src} alt={p.thumbnail.alt} loading="lazy" />
-          )}
-          <span class="tag">{p.eyebrow}</span>
-          <h3>{p.title}</h3>
-          <p class="period num">{p.period}</p>
-          <p class="summary">{p.summary}</p>
-          <div class="card-tags">{p.tags.slice(0, 4).map((t) => <span class="tag">{t}</span>)}</div>
-          <span class="more">阅读详情 →</span>
-        </a>
-      ))}
+      {agentProjects.map((p) => <ProjectCard p={p} wide={p.slug === 'maotai-rag'} />)}
+    </div>
+    <h3 class="group-label">数据分析 / 经营分析</h3>
+    <div class="proj-grid">
+      {dataProjects.map((p) => <ProjectCard p={p} />)}
     </div>
   </div>
 </section>
 <style>
-  .proj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-2); margin-top: var(--space-3); }
-  .proj-card { display: flex; flex-direction: column; gap: var(--space-1); color: var(--c-mist); overflow: hidden; }
-  .thumb {
-    display: block;
-    margin: calc(var(--space-3) * -1) calc(var(--space-3) * -1) var(--space-1);
-    width: calc(100% + var(--space-3) * 2);
-    aspect-ratio: 4 / 1; object-fit: cover;
-    border-bottom: 1px solid var(--c-line);
-  }
-  .proj-card:hover .thumb { opacity: 0.92; }
-  .proj-card:hover { border-color: var(--c-amber); }
-  .proj-card h3 { font-size: 18px; margin: 0; }
-  .period { font-size: 13px; margin: 0; }
-  .summary { font-size: 14.5px; flex: 1; margin: 0; }
-  .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--space-1); }
-  .card-tags .tag { font-size: 11px; padding: 2px 6px; }
-  .more { font-family: var(--font-mono); font-size: 13px; color: var(--c-ice); margin-top: var(--space-1); }
-  .proj-card:hover .more { color: var(--c-amber); }
-  .proj-card.wide { grid-column: 1 / -1; }
-  .proj-card.wide .summary { max-width: 78ch; }
+  .lead { max-width: 78ch; margin: 0; font-size: 15px; color: var(--c-ice); }
+  .group-label { margin: var(--space-4) 0 0; font-size: 15px; color: var(--c-ice); font-weight: 600; letter-spacing: 0.04em; }
+  .proj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-2); margin-top: var(--space-2); }
   @media (max-width: 900px) { .proj-grid { grid-template-columns: 1fr; } }
 </style>

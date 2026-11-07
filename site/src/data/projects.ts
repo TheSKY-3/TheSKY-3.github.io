@@ -10,7 +10,8 @@ export interface ProjectFigure {
 }
 
 export interface Project {
-  slug: "olist" | "ga4-growth" | "ecom-review-agent" | "criteo-uplift";
+  slug: "olist" | "ga4-growth" | "ecom-review-agent" | "criteo-uplift" | "settlement-recon" | "maotai-rag";
+  track?: "agent" | "data";
   eyebrow: string;
   title: string;
   period: string;
@@ -27,6 +28,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: "olist",
+    track: "data",
     eyebrow: "数据分析 / BI",
     title: "电商履约与口碑经营分析",
     period: "2024.07 - 2024.09",
@@ -76,6 +78,7 @@ export const projects: Project[] = [
   },
   {
     slug: "ga4-growth",
+    track: "data",
     eyebrow: "增长分析 / 实验设计",
     title: "GA4 电商转化漏斗诊断与增长实验设计",
     period: "2026.08 · 已完成，全链路可复现",
@@ -121,6 +124,7 @@ export const projects: Project[] = [
   },
   {
     slug: "criteo-uplift",
+    track: "data",
     eyebrow: "因果推断 / Uplift / 数据策略",
     title: "营销增量识别与投放策略模拟",
     period: "2026 年 · 离线分析完成，线上验证未开始",
@@ -167,13 +171,62 @@ export const projects: Project[] = [
       "本文案遵守项目证据边界：离线分析已完成，线上随机实验未开始；不声称真实投放、收入或 ROI。",
   },
   {
-    slug: "ecom-review-agent",
-    eyebrow: "AI 产品 / Agent / 数据产品",
-    title: "电商评论智能诊断 Agent",
-    period: "2026 年 · 阶段性工程验证完成；仓库与 Windows 版已开放，真人试用仍未进行",
+    slug: "maotai-rag",
+    track: "agent",
+    eyebrow: "RAG / Agent / 评测",
+    title: "茅台年报 RAG 问答系统",
+    period: "2026.10 - 至今 · 公开仓库，评测随 CI 自动复跑",
     summary:
-      "面向 B 端电商运营的本地证据决策原型：受约束 Agent + 本地 Verifier 把评论分析拆成可回查的证据卡、竞品信号和问题分诊工作流；可选的 AI 阅读步骤每点一次只读 5 条评论、调用 1 次模型，四条机器校验不过就整段丢弃。仓库自带 3 商品演示子集，Windows 单文件版双击即用。",
-    tags: ["LangGraph", "SQLite / FTS5", "Structured Output", "Verifier", "Agent 评测", "可选 AI 步骤", "访问者自带密钥"],
+      "面向投资者的财报问答：4 份茅台年报（2022–2025，556 页）切成 1,761 块，答案必附原文页码出处，查不到就明说。50 题冻结题库程序判分：出处页命中 hit@5 从 34% 提到 86%，无答案题拒答正确率 100%，每次推送都在 GitHub Actions 上自动复跑评测（低于 84% 直接失败）。",
+    tags: ["RAG", "BM25 + BGE 双路召回", "RRF", "Agent 路由", "FastAPI", "MCP", "SSE", "Docker compose"],
+    thumbnail: { src: "/images/banners/maotai.svg", alt: "茅台年报 RAG 问答系统横幅" },
+    repo: "https://github.com/TheSKY-3/maotai-annual-report-rag",
+    sections: [
+      {
+        heading: "本人负责",
+        body: "独立完成全链路：年报下载、页级切块、混合检索与语境增强索引、拒答重试与数字接地、Agent 工具路由、Streamlit / FastAPI / MCP 三种服务形态，以及 50 题冻结评测集、评测脚本与 CI 评测门。",
+      },
+      {
+        heading: "问题与边界：答案必须能翻回原文",
+        body: "上市公司年报动辄五六百页，想找一个数要翻半天目录，而大模型直接答财报容易编。项目的三个设计底线：每个答案必附所引页码与原文片段，十秒内可核对；年报里根本没有的信息明确拒答，不编造；嵌入、检索、生成三环节全部可本地离线运行，接云端大模型是可选项。数据来自巨潮资讯网依法公开披露的年报，范围就是这 4 份年报的披露口径，仅用于学习研究。",
+      },
+      {
+        heading: "检索层：每一步改进都有对照实验",
+        body: "纯向量基线 hit@5 34%（500 字窗口切块）→ 更细切块降到 22–26%，反而更差，未采用 → BM25 + 向量双路召回（RRF 融合）叠加年份识别过滤 56%，一步 +22pp、性价比最高 → reranker 精排 62%，代价约 2 秒/次 → 语境增强索引（建库时由模型为每块补一句语境说明，约 3 元、一次性）76%，取代精排后单次查询省约 2 秒 → min-max 融合调优（CAND_DEPTH=50、α=0.5）86%。更细切块、表格感知解析两条「看起来更聪明」的路线都被对照实验否掉，结论留在技术报告里。",
+      },
+      {
+        heading: "评测口径自查：金标修正后全量重算",
+        body: "金标出处「2024 年报 P9、P16」这类写法原先只解析出第一页。自查发现后全量重算：基线 30%→34%、语境增强 66%→76%、跨页题 40%→90%，CI 阈值同步 74%→84%；修正前的历史数字保留在报告里以对应历史实验。并且如实标注：86% 是在同一套 50 题上扫参的结果，不是留出集数字——150 题冻结留出集与双人盲评是下一步工作，不能拿扫参结果冒充。",
+      },
+      {
+        heading: "答案层：拒答重试 + 数字接地",
+        body: "数字必须在原文片段中命中方可放行，答不出先自动重试一次：本地 Qwen3-4B 完整答案率 33.3%→37.8%、误拒答率 22.2%→8.9%；云端 DeepSeek 35.6%→42.2%、误拒答 35.6%→13.3%；5 道无答案题拒答正确率 100%，一次都没有编造。对错题的归因还发现：六成错题的答案其实已经在检索资料里——瓶颈在模型抄写而非检索，数字接地校验因此用来定位可疑数字。",
+      },
+      {
+        heading: "Agentic 路由：复杂题进 Function Calling 工具循环",
+        body: "一次检索的 top-5 装不下「两个年份、两个指标」的全部证据——这正是跨年题与跨页多指标题失分的根因。按问题特征把这类题路由到 Function Calling 工具循环（search_reports 按年检索 / page_direct 整页直读 / compare_years 跨年取证），分轮取齐证据后再作答，工具调用轨迹完全透明；简单题仍走直通管线，不白花延迟与费用。同一套 50 题复测：整体完整率 42.2%→57.8%（跨年 40%→80%、跨页多指标 20%→50%）；45 题配对样本 7 题提升、0 题下降，McNemar 精确检验 p=0.016，bootstrap 95% 置信区间 [+6.7, +26.7]pp——提升是统计显著的，不是运气。",
+      },
+      {
+        heading: "忠实度评测：数字比对判不了的交给 LLM-as-judge",
+        body: "数字比对能判「标准答案里的数有没有出现」，判不了「答案里每个论断是否真有原文依据」。参考 RAGAS faithfulness 口径，用模型当判卷员、对照作答时实际看到的检索原文打分：41 份非拒答答案忠实度与相关性均分 5.0，无依据论点 0 条。判卷员经过对抗校验——喂编造数字的答案会判 3 分并精确摘录该论点，不是盖橡皮章。",
+      },
+      {
+        heading: "三种服务形态 + 可观测性",
+        body: "Streamlit 网页：答案流式逐字输出（SSE，拒答重试会替换已流出内容）、追问自动继承上一问的年份与主体（「那净利润呢？」）、写 P6 直达该页原文、双年报并排对比。FastAPI：/ask、/ask/stream、/ready 三态就绪探针（缺索引返回 503 并写明缺什么）。MCP server：手写 JSON-RPC 仅实现 initialize / tools / call，任何 MCP 客户端（Claude Desktop、ZCode）可把「茅台年报问答」当标准工具即插即用调用。每次问答返回 token 用量、估算成本与耗时，一请求一条 JSON 日志，可直接接 Loki / CloudWatch；Docker compose 一键起网页 + API。",
+      },
+    ],
+    boundary:
+      "本文案遵守项目证据边界：数据来自巨潮资讯网公开年报，仅用于学习研究，不构成投资建议，与贵州茅台公司无关联；86% 与 CI 阈值 84% 来自同一套 50 题冻结题库（86% 为同题扫参结果，非留出集），150 题留出集与双人盲评尚未完成；token 用量与成本为估算值，不是账单。",
+  },
+  {
+    slug: "ecom-review-agent",
+    track: "agent",
+    eyebrow: "AI 产品 / Agent / 数据产品",
+    title: "电商评论证据 Agent",
+    period: "2026.08 - 至今 · 公开仓库 + Windows 版，评测随 CI 复跑",
+    summary:
+      "面向电商运营的评论诊断 Agent：模型只负责编排与表达，取数、判定、放行都在本地代码——LangGraph 13 节点状态机可断点续跑，SQLite/FTS5 本地证据库单次诊断约 0.1 秒，5 个 MCP 工具可被 Claude Desktop 等客户端直接调用；每条结论可点回评论原文核对，评论文本不出本机。仓库自带 3 商品演示子集，Windows 单文件版双击即用。",
+    tags: ["LangGraph", "SQLite / FTS5", "MCP（stdio）", "Structured Output", "Verifier", "Agent 评测", "FastAPI", "可选 AI 步骤"],
     thumbnail: { src: "/images/banners/ecom.svg", alt: "电商评论证据 Agent 横幅" },
     repo: "https://github.com/TheSKY-3/ecom-review-intelligence",
     download: {
@@ -197,8 +250,20 @@ export const projects: Project[] = [
         body: "品牌方或跨境团队的类目运营每天面对海量评论。要回答「噪音是不是真问题」「跟竞品比质量谁占优」「先核查哪个投诉」，得跨多页评论拼证据。Excel 能数星级，聊天模型能给流畅答案——但两者都说不清「这个结论基于哪条证据、能不能回查」。项目把主问题定为：把评论整理成可复核的证据，而不是替运营下结论。",
       },
       {
-        heading: "系统怎么工作：四层架构，每层先回答「为什么这么做」",
-        body: "① 治理层：冻结公开评论数据快照、体验维度与证据合同——口径先于代码，分析不能临时创造标签。② 证据层：将评论装入 SQLite/FTS5 本地引擎，让确定性代码而不是模型掌握事实；模型只拿运行期别名和聚合证据卡，编造与串商品在结构上受约束。③ 智能层：LangGraph 受约束 Agent 只做澄清与规划，本地 Verifier 逐字段核对极性、强度、引用并回库校验。④ 业务层：工作台把能力变成三个任务流，运营看到的是可回查的证据卡，而不是一段无法复核的总结。",
+        heading: "系统怎么工作：四层架构 + LangGraph 13 节点状态机",
+        body: "① 治理层：冻结公开评论数据快照、体验维度与证据合同——口径先于代码，分析不能临时创造标签。② 证据层：将评论装入 SQLite/FTS5 本地引擎，让确定性代码而不是模型掌握事实；模型只拿运行期别名和聚合证据卡，编造与串商品在结构上受约束。③ 智能层：一次诊断拆成 LangGraph 13 节点状态机（validate_input → parse_request → resolve_products → clarify_once → route_workflow → execute_evidence_tool → build_safe_evidence → draft_answer → verify_answer → repair_once → deterministic_fallback → render_local → write_redacted_trace，源码 agent_graph.py），每步输出都过本地 Verifier 逐字段核对极性、强度、引用并回库校验，不过就确定性降级。④ 业务层：工作台把能力变成三个任务流，运营看到的是可回查的证据卡，而不是一段无法复核的总结。",
+      },
+      {
+        heading: "断点续跑：诊断可以分次完成",
+        body: "状态经 SqliteSaver 落在本机 SQLite：歧义时挂起并做单次澄清，回复后续跑；服务重启不丢会话。断点位置在脱敏 trace（每步调用记录）中可直接定位，任一步失败即降级作答，不输出半成品结论——13 步都可回放，出问题能说出是哪一步、看到了什么。",
+      },
+      {
+        heading: "MCP 工具暴露：同一套判定，客户端直接调",
+        body: "手写 JSON-RPC 仅实现 initialize / tools / call（零新增依赖），把 5 个确定性证据工具按 Model Context Protocol 标准暴露：Claude Desktop、ZCode 等 MCP 客户端即插即用，直接调用与工作台同一套判定，返回结果一致；评论原文、ASIN、路径不出本机。",
+      },
+      {
+        heading: "评测门：30 次真实调用 + 658 项 pytest",
+        body: "15 个冻结案例 × 2 次真实模型 = 30 个调用结果：26 通过、4 次预期降级，未出现越权、注入成功或编造引用——执行与放行仍在本机代码，「模型说自己没越权」不算数。658 项 pytest 全绿并在 CI 上复跑；安全指标来自本地执行记录与集合比较。",
       },
       {
         heading: "三大工作流（本地受控验证）",
@@ -246,10 +311,11 @@ export const projects: Project[] = [
       },
     ],
     boundary:
-      "本文案遵守项目证据边界：表述为「本地证据决策原型 / 阶段性工程验证」，不声称已上线、已节省工时或已改善业务指标；仓库与 Windows 版已开放，但真人试用（3 次）尚未进行，随仓库发布的是固定 3 商品演示子集，不是数据分发通道。",
+      "本文案遵守项目证据边界：不声称已上线、已节省工时或已改善业务指标；代码、评测结果与 MCP 工具公开在仓库，评测随 CI 复跑，但真人试用（3 次）尚未进行；随仓库发布的是固定 3 商品演示子集，不是数据分发通道。",
   },
   {
     slug: "settlement-recon",
+    track: "agent",
     eyebrow: "Agent 工程 / 评测",
     title: "电商结算对账 Agent",
     period: "2026.09 · 本地原型完成，合成评测全绿",

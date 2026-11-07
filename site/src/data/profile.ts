@@ -1,18 +1,22 @@
 export const profile = {
   name: "吴柏高",
-  tagline: "统计学研究生 · 用数据回答业务问题，用 AI 工作流放大交付效率",
+  tagline: "把 AI 落进真实业务：为效果负责，每一步可验证",
   intro:
-    "广东财经大学统计学硕士在读，本科数据科学与大数据技术。关注金融风控与经营分析的交汇；实习中把重复出现的分析流程固化成可复用的 Skill，相信「口径一致、可回查、能复核」的分析交付。",
-  intents: ["经营分析", "商业分析", "数据策略"],
-  availability: "每周 4-5 天 · 可实习 3 个月以上 · 到岗时间可协商",
+    "我的做事方式是一条落地链：拆解业务里真实、重复的痛点 → 把 AI 做进流程 → 用可复算的数字验证效果。实习里，司机接单指南 Skill 连续 60 天服务约 40 名司机（制作 2h→5min），月度对账 1 天→10 分钟；开源的财报 RAG 让投资者问一句就拿到带页码的答案（hit@5 34%→86%）。统计学硕士在读，相信能落地的 AI 先要能验证。",
+  intents: ["Agent 开发", "LLM 应用开发", "AI 应用工程", "数据分析 / 经营分析"],
+  availability: "一周内到岗 · 每周 4-5 天 · 可实习 6 个月以上",
   email: "1525546469@qq.com",
   location: "广州",
   github: "https://github.com/TheSKY-3",
+  resumes: [
+    { label: "下载简历 · Agent 开发", href: "/resume-wubogao-agent.pdf", primary: true },
+    { label: "下载简历 · 经营分析", href: "/resume-wubogao-analysis.pdf", primary: false },
+  ],
 };
 
 export const heroStats = [
-  { value: "1015 万+", label: "出行订单渠道分析" },
-  { value: "159 万+", label: "风控建模样本" },
-  { value: "60 期", label: "AI 日报连续自动化" },
-  { value: "近 50 份", label: "补贴专题报告" },
+  { value: "86%", label: "财报 RAG 出处命中 hit@5（50 题冻结题库）" },
+  { value: "13 节点", label: "LangGraph 诊断状态机（评论 Agent）" },
+  { value: "658 项", label: "pytest 全绿 · CI 上跑" },
+  { value: "1015 万+", label: "出行订单经营分析（实习）" },
 ];

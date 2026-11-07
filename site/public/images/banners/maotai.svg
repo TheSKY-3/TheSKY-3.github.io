@@ -1,0 +1,30 @@
+<svg width="1200" height="300" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="1200" height="300" fill="#0B1220"/>
+  <g>
+    <!-- 母题：年报页 → 检索 → 带页码出处的答案 -->
+    <rect x="820" y="52" width="120" height="150" rx="8" fill="#131F35" stroke="#2A3D5C" stroke-width="1.5"/>
+    <text x="836" y="76" fill="#8FB8D8" font-size="12" font-family="Cascadia Code, Consolas, monospace">2024年报</text>
+    <text x="836" y="98" fill="#C6CFDC" font-size="11" font-family="Cascadia Code, Consolas, monospace">P48</text>
+    <rect x="836" y="108" width="88" height="5" rx="2" fill="#2A3D5C"/>
+    <rect x="836" y="120" width="72" height="5" rx="2" fill="#2A3D5C"/>
+    <rect x="836" y="132" width="80" height="5" rx="2" fill="#2A3D5C"/>
+    <rect x="836" y="144" width="60" height="5" rx="2" fill="#2A3D5C"/>
+    <text x="836" y="182" fill="#E8A33D" font-size="12" font-family="Cascadia Code, Consolas, monospace">1,761 块</text>
+    <rect x="820" y="216" width="120" height="30" rx="6" fill="#0F1A30" stroke="#2A3D5C" stroke-width="1"/>
+    <text x="836" y="236" fill="#8FB8D8" font-size="11" font-family="Cascadia Code, Consolas, monospace">…×4 份年报</text>
+    <text x="966" y="130" fill="#8FB8D8" font-size="20" font-family="Cascadia Code, Consolas, monospace">→</text>
+    <rect x="990" y="52" width="190" height="150" rx="8" fill="#131F35" stroke="#E8A33D" stroke-width="1.5"/>
+    <text x="1006" y="76" fill="#8FB8D8" font-size="12" font-family="Cascadia Code, Consolas, monospace">答案 + 出处卡</text>
+    <text x="1006" y="100" fill="#C6CFDC" font-size="11" font-family="Cascadia Code, Consolas, monospace">经销商 2,143 家</text>
+    <rect x="1006" y="112" width="158" height="26" rx="5" fill="#0F1A30" stroke="#2A3D5C" stroke-width="1"/>
+    <text x="1014" y="130" fill="#E8A33D" font-size="11" font-family="Cascadia Code, Consolas, monospace">2024年报 P48 原文</text>
+    <text x="1006" y="162" fill="#C6CFDC" font-size="11" font-family="Cascadia Code, Consolas, monospace">查不到 → 明说</text>
+    <text x="1006" y="184" fill="#7FC9A0" font-size="11" font-family="Cascadia Code, Consolas, monospace">无答案题拒答 100%</text>
+    <rect x="820" y="216" width="360" height="40" rx="8" fill="#131F35" stroke="#2A3D5C" stroke-width="1.5"/>
+    <text x="838" y="242" fill="#7FC9A0" font-size="14" font-family="Cascadia Code, Consolas, monospace">hit@5 34%→86% · CI 门 &lt;84% 即失败</text>
+  </g>
+  <text x="60" y="105" fill="#F2F5F9" font-size="46" font-weight="bold">茅台年报 RAG 问答系统</text>
+  <text x="60" y="158" fill="#8FB8D8" font-size="25">4 份年报 556 页变成能提问的资料库，答案必附原文页码出处</text>
+  <text x="60" y="215" fill="#E8A33D" font-size="19" font-family="Cascadia Code, Consolas, monospace">hit@5 34%→86% · 拒答+数字接地 · Agentic 路由 +15.6pp (p=0.016)</text>
+  <text x="60" y="252" fill="#C6CFDC" font-size="17" font-family="Cascadia Code, Consolas, monospace">BM25 + BGE 双路召回 · RRF · 语境增强索引 · FastAPI · MCP · SSE</text>
+</svg>

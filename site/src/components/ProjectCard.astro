@@ -1,0 +1,37 @@
+---
+import type { Project } from '../data/projects';
+interface Props { p: Project; wide?: boolean }
+const { p, wide = false } = Astro.props;
+---
+<a class:list={["card", "proj-card", { wide }]} href={`/projects/${p.slug}/`}>
+  {p.thumbnail && (
+    <img class="thumb" src={p.thumbnail.src} alt={p.thumbnail.alt} loading="lazy" />
+  )}
+  <span class="tag">{p.eyebrow}</span>
+  <h3>{p.title}</h3>
+  <p class="period num">{p.period}</p>
+  <p class="summary">{p.summary}</p>
+  <div class="card-tags">{p.tags.slice(0, 4).map((t) => <span class="tag">{t}</span>)}</div>
+  <span class="more">阅读详情 →</span>
+</a>
+<style>
+  .proj-card { display: flex; flex-direction: column; gap: var(--space-1); color: var(--c-mist); overflow: hidden; }
+  .thumb {
+    display: block;
+    margin: calc(var(--space-3) * -1) calc(var(--space-3) * -1) var(--space-1);
+    width: calc(100% + var(--space-3) * 2);
+    aspect-ratio: 4 / 1; object-fit: cover;
+    border-bottom: 1px solid var(--c-line);
+  }
+  .proj-card:hover .thumb { opacity: 0.92; }
+  .proj-card:hover { border-color: var(--c-amber); }
+  .proj-card h3 { font-size: 18px; margin: 0; }
+  .period { font-size: 13px; margin: 0; }
+  .summary { font-size: 14.5px; flex: 1; margin: 0; }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--space-1); }
+  .card-tags .tag { font-size: 11px; padding: 2px 6px; }
+  .more { font-family: var(--font-mono); font-size: 13px; color: var(--c-ice); margin-top: var(--space-1); }
+  .proj-card:hover .more { color: var(--c-amber); }
+  .proj-card.wide { grid-column: 1 / -1; }
+  .proj-card.wide .summary { max-width: 78ch; }
+</style>

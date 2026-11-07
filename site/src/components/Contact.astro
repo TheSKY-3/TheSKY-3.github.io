@@ -4,7 +4,12 @@ import { profile } from '../data/profile';
 <section class="section" id="contact">
   <div class="container contact-inner">
     <span class="eyebrow">联系 / CONTACT</span>
-    <h2>简历与项目细节，欢迎邮件索取</h2>
+    <h2>两份简历可直接下载，项目细节欢迎邮件交流</h2>
+    <p>
+      <a href={profile.resumes[0].href} download>{profile.resumes[0].label} ↓</a>
+      &nbsp;·&nbsp;
+      <a href={profile.resumes[1].href} download>{profile.resumes[1].label} ↓</a>
+    </p>
     <p>{profile.location} · {profile.availability}</p>
     <a class="mail" href={`mailto:${profile.email}`}>{profile.email}</a>
     <p class="gh">
