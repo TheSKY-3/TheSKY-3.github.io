@@ -1,0 +1,35 @@
+<svg width="1000" height="330" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="1000" height="330" fill="#FFFFFF"/>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#23304A"/>
+    </marker>
+  </defs>
+  <g font-size="16" fill="#0B1220">
+    <rect x="30" y="40" width="280" height="70" rx="10" fill="#F5F7FA" stroke="#23304A"/>
+    <text x="170" y="68" text-anchor="middle" font-weight="bold">IEEE-CIS + BAF</text>
+    <text x="170" y="92" text-anchor="middle">约 159 万条交易与申请记录</text>
+    <rect x="360" y="40" width="280" height="70" rx="10" fill="#F5F7FA" stroke="#23304A"/>
+    <text x="500" y="68" text-anchor="middle" font-weight="bold">按时间先后切分</text>
+    <text x="500" y="92" text-anchor="middle">训练 / 测试，防未来信息泄漏</text>
+    <rect x="690" y="40" width="280" height="70" rx="10" fill="#F5F7FA" stroke="#23304A"/>
+    <text x="830" y="68" text-anchor="middle" font-weight="bold">历史时点可得特征</text>
+    <text x="830" y="92" text-anchor="middle">控制评估虚高</text>
+    <line x1="310" y1="75" x2="352" y2="75" stroke="#23304A" stroke-width="2" marker-end="url(#ar)"/>
+    <line x1="640" y1="75" x2="682" y2="75" stroke="#23304A" stroke-width="2" marker-end="url(#ar)"/>
+    <path d="M 830 110 L 830 140 L 170 140 L 170 162" fill="none" stroke="#23304A" stroke-width="2" marker-end="url(#ar)"/>
+    <rect x="30" y="170" width="280" height="70" rx="10" fill="#F5F7FA" stroke="#23304A"/>
+    <text x="170" y="198" text-anchor="middle" font-weight="bold">三模型对照选模</text>
+    <text x="170" y="222" text-anchor="middle">XGBoost / LightGBM / CatBoost</text>
+    <rect x="360" y="170" width="280" height="70" rx="10" fill="#F5F7FA" stroke="#23304A"/>
+    <text x="500" y="198" text-anchor="middle" font-weight="bold">折外预测学阈值</text>
+    <text x="500" y="222" text-anchor="middle">成本最优，而非默认 0.5</text>
+    <rect x="690" y="170" width="280" height="70" rx="10" fill="#FDF4E3" stroke="#E8A33D"/>
+    <text x="830" y="198" text-anchor="middle" font-weight="bold">三档部署方案</text>
+    <text x="830" y="222" text-anchor="middle">成本优先 / 平衡 / 高召回</text>
+    <line x1="310" y1="205" x2="352" y2="205" stroke="#23304A" stroke-width="2" marker-end="url(#ar)"/>
+    <line x1="640" y1="205" x2="682" y2="205" stroke="#23304A" stroke-width="2" marker-end="url(#ar)"/>
+  </g>
+  <text x="30" y="285" font-size="16" fill="#0B1220">10% 复核容量下，树模型较默认阈值降低未来测试成本 <tspan fill="#B26A00" font-weight="bold">40.37%–48.60%</tspan></text>
+  <text x="30" y="312" font-size="13" fill="#5E7A99">离线评估口径：未来测试集；未线上部署。漏报损失 / 误报成本 / 复核量与队列容量写进目标函数。</text>
+</svg>

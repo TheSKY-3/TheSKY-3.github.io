@@ -10,7 +10,7 @@ export interface ProjectFigure {
 }
 
 export interface Project {
-  slug: "olist" | "ga4-growth" | "ecom-review-agent" | "criteo-uplift" | "settlement-recon" | "maotai-rag";
+  slug: "fraud-risk" | "olist" | "ga4-growth" | "ecom-review-agent" | "criteo-uplift" | "settlement-recon" | "maotai-rag";
   track?: "agent" | "data";
   eyebrow: string;
   title: string;
@@ -26,6 +26,44 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    slug: "fraud-risk",
+    track: "data",
+    eyebrow: "风险建模 / 成本敏感决策",
+    title: "金融欺诈风险策略与部署评估",
+    period: "2025.09 - 至今 · 校级重点项目 · 第一作者",
+    summary:
+      "在 IEEE-CIS 与 BAF 约 159 万条金融交易与申请记录上做时间一致验证与成本敏感阈值学习：按时间先后切分训练/测试、只用历史时点可得的特征；把漏报损失、误报成本与人工复核容量写进目标，10% 复核容量下较默认阈值降低未来测试成本 40.37%–48.60%。",
+    tags: ["XGBoost", "LightGBM", "CatBoost", "时间一致验证", "成本敏感决策", "OOF 阈值学习"],
+    thumbnail: { src: "/images/banners/fraud.svg", alt: "金融欺诈风险策略与部署评估项目横幅" },
+    figures: [
+      { src: "/images/fraud/pipeline.svg", alt: "欺诈风险建模与部署评估管线", caption: "管线：时间切分防泄漏 → 三模型对照 → 折外预测学成本最优阈值 → 三档方案供业务按复核容量选。数字均为未来测试集上的离线评估。" },
+    ],
+    sections: [
+      {
+        heading: "本人负责",
+        body: "以第一作者完成数据审计、时间一致验证设计、多模型对照、成本敏感阈值学习与三档部署方案评估；相关论文《金融欺诈检测的时间一致容量约束代价风险评估》2026.08 投稿《数理统计与管理》。",
+      },
+      {
+        heading: "背景与问题",
+        body: "欺诈检测的默认 0.5 报警阈值忽略两个现实：漏报与误报的代价不对称，人工复核容量有限。用默认阈值要么复核队列被淹没、要么漏掉高损失案件。项目把「阈值怎么定」变成一个能在历史数据上求解的成本优化问题，而不是调参碰运气。",
+      },
+      {
+        heading: "数据建模与验证",
+        body: "IEEE-CIS 与 BAF 约 159 万条交易与申请记录；按时间先后划分训练/测试，只用历史时点可得的特征构建变量，控制随机切分与未来信息泄漏造成的评估虚高；XGBoost / LightGBM / CatBoost 多模型对照选模。",
+      },
+      {
+        heading: "部署策略优化",
+        body: "把漏报损失、误报成本、人工复核量与队列容量写进目标，用折外预测学成本最优报警阈值、而非默认 0.5；产出成本优先 / 平衡 / 高召回三档方案，供业务按复核容量选择，而不是给一个「最优」黑箱。",
+      },
+      {
+        heading: "结果与边界",
+        body: "10% 复核容量下，树模型较默认阈值降低未来测试成本 40.37%–48.60%。所有数字为未来测试集上的离线评估：未线上部署，不声称真实业务损失下降。",
+      },
+    ],
+    boundary:
+      "本文案遵守项目证据边界：数据来自 IEEE-CIS 与 BAF 公开数据集；成本降幅为未来测试集离线评估，未线上部署；论文处于投稿评审阶段，不声称录用。",
+  },
   {
     slug: "olist",
     track: "data",

@@ -1,0 +1,16 @@
+<svg width="1200" height="300" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="1200" height="300" fill="#0B1220"/>
+  <g>
+    <rect x="820" y="96" width="56" height="150" rx="4" fill="#23304A"/>
+    <rect x="895" y="131" width="56" height="115" rx="4" fill="#2A3D5C"/>
+    <rect x="970" y="166" width="56" height="80" rx="4" fill="#31486B"/>
+    <rect x="1045" y="196" width="56" height="50" rx="4" fill="#E8A33D"/>
+    <line x1="800" y1="246" x2="1130" y2="246" stroke="#23304A" stroke-width="2"/>
+    <text x="820" y="80" fill="#5E7A99" font-size="15" font-family="Cascadia Code, Consolas, monospace">默认 0.5 阈值</text>
+    <text x="1028" y="80" fill="#E8A33D" font-size="15" font-family="Cascadia Code, Consolas, monospace">成本最优阈值</text>
+  </g>
+  <text x="60" y="105" fill="#F2F5F9" font-size="46" font-weight="bold">金融欺诈风险策略与部署评估</text>
+  <text x="60" y="158" fill="#8FB8D8" font-size="25">159 万条记录 → 成本最优报警阈值</text>
+  <text x="60" y="215" fill="#E8A33D" font-size="19" font-family="Cascadia Code, Consolas, monospace">10% 复核容量 · 未来测试成本 ↓40.37%–48.60%</text>
+  <text x="60" y="252" fill="#C6CFDC" font-size="17" font-family="Cascadia Code, Consolas, monospace">XGBoost · LightGBM · CatBoost · 时间一致验证</text>
+</svg>
