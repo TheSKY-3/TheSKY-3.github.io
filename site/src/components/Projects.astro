@@ -9,13 +9,13 @@ const dataProjects = projects.filter((p) => p.track !== 'agent');
     <span class="eyebrow">项目作品集 / PROJECTS</span>
     <h2>七个可验证的项目</h2>
     <p class="lead">代码公开、评测集冻结、证据边界写明——每个结论都能回查，每个数字都能复算。</p>
-    <h3 class="group-label">Agent / LLM 应用</h3>
-    <div class="proj-grid">
-      {agentProjects.map((p) => <ProjectCard p={p} wide={p.slug === 'maotai-rag'} />)}
-    </div>
     <h3 class="group-label">数据分析 / 经营分析</h3>
     <div class="proj-grid">
       {dataProjects.map((p) => <ProjectCard p={p} />)}
+    </div>
+    <h3 class="group-label">AI 应用 / RAG</h3>
+    <div class="proj-grid">
+      {agentProjects.map((p) => <ProjectCard p={p} wide={p.slug === 'maotai-rag'} />)}
     </div>
   </div>
 </section>

@@ -27,7 +27,7 @@ import { profile, heroStats } from '../data/profile';
       ))}
     </ul>
     <svg class="hit-bars" viewBox="0 0 1080 150" aria-hidden="true" role="img">
-      <!-- 出处页命中 hit@5：金标口径修正后（基线 34 → 混合检索+年份 56 → 语境增强 76 → 融合调优 86） -->
+      <!-- 50 题调参集消融（基线 34 → 混合检索+年份 56 → 语境增强 76 → 融合调优 86）；150 题留出集 hit@5 77.3% -->
       <g font-family="var(--font-mono)">
         <rect x="90" y="82" width="110" height="34" rx="4" fill="var(--c-ice)" opacity="0.75"/>
         <rect x="300" y="57" width="110" height="59" rx="4" fill="var(--c-ice)" opacity="0.85"/>
@@ -42,13 +42,13 @@ import { profile, heroStats } from '../data/profile';
         <text x="355" y="136" text-anchor="middle" font-size="13" fill="var(--c-ice)">BM25+向量 · 年份过滤</text>
         <text x="565" y="136" text-anchor="middle" font-size="13" fill="var(--c-ice)">语境增强索引</text>
         <text x="775" y="136" text-anchor="middle" font-size="13" fill="var(--c-amber)">+ min-max 融合</text>
-        <text x="920" y="60" font-size="13" fill="var(--c-mist)">eval-gate CI：</text>
+        <text x="920" y="60" font-size="13" fill="var(--c-mist)">50 题调参集 CI：</text>
         <text x="920" y="82" font-size="13" fill="var(--c-mist)">hit@5 &lt; 84%</text>
         <text x="920" y="104" font-size="13" fill="var(--c-mist)">直接失败亮红灯</text>
       </g>
     </svg>
-    <p class="hero-caption">来自财报 RAG 问答系统：让投资者问一句，就拿到能核对页码的答案——这个数字就是证据。</p>
-    <p class="hero-caption-note">50 题冻结题库、程序判分；金标口径修正后，86% 为同题扫参结果、非留出集。</p>
+    <p class="hero-caption">财报 RAG 是其中一个可复算证据：50 题调参集消融到 86%；150 题冻结留出集 hit@5 77.3%，修正口径 91.9%。</p>
+    <p class="hero-caption-note">50 题为调参集，86% 含约 9pp 调参溢价；150 题为 SHA256 冻结留出集、从未参与调参；页面数字以留出集为准。</p>
   </div>
 </section>
 <style>

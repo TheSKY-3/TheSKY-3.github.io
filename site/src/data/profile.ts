@@ -1,22 +1,22 @@
 export const profile = {
   name: "吴柏高",
-  tagline: "把 AI 落进真实业务：为效果负责，每一步可验证",
+  tagline: "数据分析 / 经营分析：把业务问题拆成可复算的指标与决策",
   intro:
-    "做事只认一条落地链：拆解业务里真实、重复的痛点 → 把 AI 做进流程 → 用可复算的数字验证效果。四条细则：先问「为谁解决什么问题」再动手；效果不靠说，靠可复算的数字；结论要能回查，边界要提前写明；模型只做表达与编排，判定和放行留在流程里。统计学硕士在读，相信能落地的 AI 先要能验证。",
-  intents: ["Agent 开发", "LLM 应用开发", "AI 应用工程", "数据分析 / 经营分析"],
+    "统计学硕士在读。上一份实习在出行平台运营中心处理 1,015 万条订单，做渠道调价、补贴档位与留存归因，累计交付 60 余份分析报告；也用 MySQL/Python 做过 Olist 电商经营分析，并独立完成财报 RAG 的检索与评测。习惯先锁口径，再做对照和异常定位，结论保留可回查的证据。",
+  intents: ["数据分析 / 经营分析", "商业分析 / 数据策略", "数据运营 / 增长分析", "AI 应用 / RAG"],
   availability: "一周内到岗 · 每周 4-5 天 · 可实习 6 个月以上",
   email: "1525546469@qq.com",
   location: "广州",
   github: "https://github.com/TheSKY-3",
   resumes: [
-    { label: "下载简历 · Agent 开发", href: "/resume-wubogao-agent.pdf", primary: true },
-    { label: "下载简历 · 经营分析", href: "/resume-wubogao-analysis.pdf", primary: false },
+    { label: "下载简历 · 经营分析", href: "/resume-wubogao-analysis.pdf", primary: true },
+    { label: "下载简历 · Agent 开发", href: "/resume-wubogao-agent.pdf", primary: false },
   ],
 };
 
 export const heroStats = [
-  { value: "86%", label: "财报 RAG 出处命中 hit@5（50 题冻结题库）" },
-  { value: "13 节点", label: "LangGraph 诊断状态机（评论 Agent）" },
-  { value: "658 项", label: "pytest 全绿 · CI 上跑" },
-  { value: "1015 万+", label: "出行订单经营分析（实习）" },
+  { value: "1,015 万+", label: "出行订单分析（实习）" },
+  { value: "60 余份", label: "网页版分析报告交付" },
+  { value: "77.3%", label: "财报 RAG 150 题留出集 hit@5（修正口径 91.9%）" },
+  { value: "2h→30min", label: "千万级订单合并提效（实习）" },
 ];

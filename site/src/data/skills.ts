@@ -6,9 +6,14 @@ export interface SkillGroup {
 
 export const skillGroups: SkillGroup[] = [
   {
+    name: "数据分析 / BI",
+    note: "实习主战场：渠道经营 / 补贴策略 / 订单履约；SQL、Python、BI 是日常工具",
+    items: ["Pandas / NumPy / Matplotlib", "MySQL 多表连接与窗口函数", "SQL / DuckDB（parquet 分块）", "Power BI 看板与 DAX", "Excel 透视表", "实验与因果（同期对照 / DID / 功效测算）", "XGBoost / LightGBM / CatBoost"],
+  },
+  {
     name: "开发技术",
     note: "从数据处理到服务部署的完整链路，全部在开源项目里实际用过",
-    items: ["Python（pandas / numpy）", "SQL（DuckDB / parquet 分块）", "Git", "FastAPI（/health、/ask）", "uvicorn", "Streamlit", "Docker / compose", "Linux", "原生 HTML / CSS / JavaScript（零 CDN 依赖）"],
+    items: ["Python（pandas / numpy）", "Git", "FastAPI（/health、/ask）", "uvicorn", "Streamlit", "Docker / compose", "Linux", "原生 HTML / CSS / JavaScript（零 CDN 依赖）"],
   },
   {
     name: "工程与测试",
@@ -17,13 +22,8 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     name: "Agent / LLM 应用开发",
-    note: "两个开源 Agent 项目的主战场：编排、约束、评测各成一层",
+    note: "RAG 与受约束 Agent 的工程实践，作品集的第二条线",
     items: ["LangGraph 状态机（13 节点）", "checkpoint 断点续跑（SqliteSaver）", "MCP 工具封装（stdio）", "请求预算与工具台账", "RAG：BM25 + bge-small-zh 双路召回、RRF、语境增强索引", "拒答重试 · 数字接地", "固定题库评测（hit@5 / 完整率 / 误拒答）", "LoRA 微调（Qwen 4B 基座，5,000 条）"],
-  },
-  {
-    name: "数据分析 / BI",
-    note: "实习主战场：渠道经营 / 补贴策略 / 订单履约",
-    items: ["Pandas / NumPy / Matplotlib", "MySQL 多表连接与窗口函数", "BigQuery 取数", "Power BI 看板与 DAX", "Excel 透视表", "实验与因果（同期对照 / DID / 功效测算）", "XGBoost / LightGBM / CatBoost"],
   },
   {
     name: "AI 工具",
