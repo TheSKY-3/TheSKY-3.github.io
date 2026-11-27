@@ -10,6 +10,7 @@ import { research } from '../data/research';
       <h1>{research.title}</h1>
       <p class="subtitle">{research.subtitle}</p>
       <p class="num period">{research.period}</p>
+      <p class="paper">{research.paper}</p>
       <p class="detail-summary">{research.summary}</p>
       {research.sections.map((s) => (
         <section class="block">
@@ -37,6 +38,7 @@ import { research } from '../data/research';
   h1 { font-size: clamp(28px, 5vw, 42px); margin: var(--space-2) 0 var(--space-1); }
   .subtitle { color: var(--c-paper); font-size: 17px; margin: 0; }
   .period { margin-top: var(--space-1); }
+  .paper { font-family: var(--font-mono); font-size: 13px; color: var(--c-ice); margin: 4px 0 0; }
   .block { margin-top: var(--space-4); max-width: 760px; }
   .block-wide { max-width: none; }
   .block-wide .fig img { width: 100%; }
